@@ -41,7 +41,13 @@
   const getCanto = (id) => {
     const meta = CANTO_META.find((c) => c.id === +id);
     const content = CONTENT[+id];
-    return meta ? Object.assign({}, meta, content || {}) : null;
+    if (!meta) return null;
+    const merged = Object.assign({}, meta, content || {});
+    // सावधान : meta.chapters (अध्याय-सङ्ख्या) लाई content.chapters (अध्याय-सूची) ले
+    // ओझेलमा पार्छ, जसले ब्यानरमा "[object Object]" देखाउँथ्यो। सङ्ख्या अलग राखिन्छ।
+    merged.nChapters = (content && content.chapters && content.chapters.length) || meta.chapters;
+    merged.chapters = meta.chapters;
+    return merged;
   };
 
   const chapterOf = (canto, n) => (canto.chapters || []).find((c) => c.n === +n);
@@ -157,7 +163,7 @@
     let html = '<div class="canto-banner" style="background:linear-gradient(120deg,' + c.color + 'dd,' + c.color + ')">';
     html += '<div class="cb-roman">' + c.roman + '</div>';
     html += '<h1>' + c.name + '</h1><div class="cb-tag">' + c.tagline + '</div>';
-    html += '<div class="cb-meta"><span>📖 ' + ne(c.chapters) + ' अध्याय</span>' + (ready ? '<span>🧩 ' + ne(ct.themes.length) + ' विषयगत प्रकरण</span><span>✓ ' + ne(readStore.count(c.id)) + ' पढिसकिएका</span>' : '') + '</div>';
+    html += '<div class="cb-meta"><span>📖 ' + ne(ready ? ct.chapters.length : c.chapters) + ' अध्याय</span>' + (ready ? '<span>🧩 ' + ne(ct.themes.length) + ' विषयगत प्रकरण</span><span>✓ ' + ne(readStore.count(c.id)) + ' पढिसकिएका</span>' : '') + '</div>';
     html += '</div>';
 
     if (!ready) {
@@ -267,12 +273,24 @@
 
   // ---- राउटर ----
   function route() {
-    const h = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
-    const parts = h.split('/').filter(Boolean);
+    const raw = location.hash.replace(/^#\/?/, '');
+    // मार्ग (path) र प्रश्न-शृङ्खला (query) छुट्याउनुपर्छ : नत्र 'search?q=…' एउटै
+    // टुक्रा बन्छ र खोजी-पाटो कहिल्यै खुल्दैन।
+    const qIdx = raw.indexOf('?');
+    const pathPart = qIdx < 0 ? raw : raw.slice(0, qIdx);
+    const queryPart = qIdx < 0 ? '' : raw.slice(qIdx + 1);
+    let parts;
+    try { parts = decodeURIComponent(pathPart).split('/').filter(Boolean); }
+    catch (e) { parts = pathPart.split('/').filter(Boolean); }
     if (!parts.length) return viewHome();
     if (parts[0] === 'canto' && parts[1] && parts[2] === 'chapter' && parts[3]) return viewChapter(+parts[1], +parts[3]);
     if (parts[0] === 'canto' && parts[1]) return viewCanto(+parts[1]);
-    if (parts[0] === 'search') return viewSearch((location.hash.match(/[?&]q=([^&]*)/) || [])[1] ? decodeURIComponent(RegExp.$1) : '');
+    if (parts[0] === 'search') {
+      const m = queryPart.match(/(?:^|&)q=([^&]*)/);
+      let q = '';
+      if (m) { try { q = decodeURIComponent(m[1]); } catch (e) { q = m[1]; } }
+      return viewSearch(q);
+    }
     viewHome();
   }
 
