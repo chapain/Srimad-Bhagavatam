@@ -267,7 +267,7 @@
       });
     });
     if (!found) html += '<p class="empty">“' + esc(q) + '” भेटिएन। अर्को शब्द प्रयास गर्नुहोस् — जस्तै: प्रह्लाद, भीष्म, वराह, गजेन्द्र।</p>';
-    else html += '<p style="color:var(--ink-soft);font-size:.9rem">' + ne(found) + ' वटा अध्यायमा भेटियो।</p>';
+    else html += '<p class="search-count">' + ne(found) + ' वटा अध्यायमा भेटियो।</p>';
     main.innerHTML = html;
   }
 
@@ -319,7 +319,8 @@
   document.getElementById('searchBtn').addEventListener('click', doSearch);
 
   const fsClasses = ['', 'fs-big', 'fs-xl'];
-  let fsIdx = +(localStorage.getItem('sb-fs') || 0);
+  let fsIdx = Number(localStorage.getItem('sb-fs') || 0);
+  if (!Number.isInteger(fsIdx) || fsIdx < 0 || fsIdx >= fsClasses.length) fsIdx = 0;
   const applyFs = () => {
     document.body.classList.remove('fs-big', 'fs-xl');
     if (fsClasses[fsIdx]) document.body.classList.add(fsClasses[fsIdx]);
@@ -338,6 +339,7 @@
   syncTopbar();
   window.addEventListener('resize', syncTopbar);
   window.addEventListener('load', syncTopbar);
+  if (topbar && 'ResizeObserver' in window) new ResizeObserver(syncTopbar).observe(topbar, { box: 'border-box' });
 
   // Esc ले mobile साइडबार बन्द गर्ने (ट्याप र स्क्रीन-रेडर support)
   document.addEventListener('keydown', (e) => {
