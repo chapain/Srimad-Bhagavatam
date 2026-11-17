@@ -329,6 +329,24 @@
   document.getElementById('fontMinus').addEventListener('click', () => { if (fsIdx > 0) { fsIdx--; applyFs(); } });
   applyFs();
 
+  // ट्यापबारको वास्तविक उचाइ साइडबार र ब्याकड्रपको लागि CSS variable मा उतार्नुहोस् —
+  // मोबाइलमा ट्यापबार दुई पाटी बन्दा पनि साइडबार र ब्याकड्रप ठीक ठाउँमा रहन्छन्।
+  const topbar = document.querySelector('.topbar');
+  const syncTopbar = () => {
+    if (topbar) document.documentElement.style.setProperty('--topbar-h', topbar.offsetHeight + 'px');
+  };
+  syncTopbar();
+  window.addEventListener('resize', syncTopbar);
+  window.addEventListener('load', syncTopbar);
+
+  // Esc ले mobile साइडबार बन्द गर्ने (ट्याप र स्क्रीन-रेडर support)
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+      sidebar.classList.remove('open');
+      document.getElementById('backdrop').classList.remove('show');
+    }
+  });
+
   window.addEventListener('hashchange', route);
   route();
 })();
