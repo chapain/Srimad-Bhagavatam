@@ -11,9 +11,14 @@
   --accent: #9a3412;
   --fs: 1.06rem;
   --radius: 14px;
+  --topbar-h: 62px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+button, a, input, label, .nav-ch, .chapter-row, .search-result { touch-action: manipulation; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 body {
   margin: 0;
   background: var(--bg);
@@ -21,6 +26,8 @@ body {
   font-family: 'Noto Sans Devanagari', sans-serif;
   font-size: var(--fs);
   line-height: 1.85;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 body.fs-big { --fs: 1.18rem; }
 body.fs-xl { --fs: 1.32rem; }
@@ -28,8 +35,9 @@ body.fs-xl { --fs: 1.32rem; }
 /* ---------- top bar ---------- */
 .topbar {
   position: sticky; top: 0; z-index: 50;
-  display: flex; align-items: center; gap: 14px;
-  padding: 10px 18px;
+  display: flex; align-items: center; gap: 12px;
+  flex-wrap: wrap;
+  padding: calc(10px + var(--safe-top)) 18px 10px;
   background: linear-gradient(120deg, var(--maroon-deep), var(--maroon) 60%, #96360f);
   color: #fff7e8;
   box-shadow: 0 2px 12px rgba(60, 20, 0, .25);
@@ -51,7 +59,7 @@ body.fs-xl { --fs: 1.32rem; }
   outline: none;
 }
 .search-wrap button {
-  border: none; padding: 8px 16px; border-radius: 0 24px 24px 0;
+  border: none; padding: 8px 16px; min-height: 44px; border-radius: 0 24px 24px 0;
   background: var(--gold); color: var(--maroon-deep);
   font-family: inherit; font-weight: 600; cursor: pointer;
 }
@@ -59,25 +67,25 @@ body.fs-xl { --fs: 1.32rem; }
 .font-tools { display: flex; gap: 6px; }
 .font-tools button {
   border: 1px solid rgba(255,255,255,.4); background: transparent; color: #fff7e8;
-  border-radius: 8px; padding: 4px 10px; cursor: pointer; font-size: .9rem; font-weight: 600;
+  border-radius: 10px; padding: 6px 12px; min-height: 40px; cursor: pointer; font-size: .9rem; font-weight: 600;
 }
 .font-tools button:hover { background: rgba(255,255,255,.15); }
 .menu-btn {
   display: none; border: none; background: transparent; color: #fff7e8;
-  font-size: 1.5rem; cursor: pointer; padding: 0 6px;
+  font-size: 1.5rem; cursor: pointer; padding: 4px 10px; min-height: 44px;
 }
 
 /* ---------- layout ---------- */
-.layout { display: flex; min-height: calc(100vh - 62px); }
+.layout { display: flex; min-height: calc(100vh - var(--topbar-h)); }
 .sidebar {
   width: 300px; flex-shrink: 0;
   border-right: 1px solid var(--line);
   background: #fbf7ec;
-  padding: 16px 10px 80px;
+  padding: 16px 10px calc(80px + var(--safe-bottom));
   overflow-y: auto;
-  position: sticky; top: 62px; height: calc(100vh - 62px);
+  position: sticky; top: var(--topbar-h); height: calc(100vh - var(--topbar-h));
 }
-.main { flex: 1; padding: 28px 34px 90px; max-width: 1060px; }
+.main { flex: 1; padding: 28px 34px calc(90px + var(--safe-bottom)); max-width: 1060px; min-width: 0; }
 .backdrop { display: none; }
 
 /* ---------- sidebar ---------- */
@@ -218,11 +226,12 @@ body.fs-xl { --fs: 1.32rem; }
   background: linear-gradient(135deg, #fdf6e3, #f8eed3);
   border-left: 4px solid var(--gold); border-radius: 10px;
   font-family: 'Noto Serif Devanagari', serif;
+  overflow-wrap: break-word;
 }
 .shloka .sa { font-size: 1.18rem; line-height: 2.1; color: var(--maroon-deep); display: block; }
 .shloka .np { display: block; margin-top: 10px; font-size: .95rem; color: var(--ink-soft); font-family: 'Noto Sans Devanagari', sans-serif; }
 .reader h2 { font-family: 'Noto Serif Devanagari', serif; color: var(--maroon); font-size: 1.2rem; margin: 24px 0 8px; }
-.reader p { margin: 0 0 16px; text-align: justify; }
+.reader p { margin: 0 0 16px; text-align: justify; overflow-wrap: break-word; }
 .points { margin: 4px 0 16px; padding-left: 4px; list-style: none; }
 .points li { position: relative; padding-left: 26px; margin-bottom: 8px; }
 .points li::before { content: "❖"; position: absolute; left: 0; top: 0; color: var(--gold); }
@@ -257,15 +266,62 @@ mark { background: #ffe9a8; padding: 0 2px; border-radius: 3px; }
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .menu-btn { display: block; }
-  .main { padding: 20px 18px 80px; }
+  .main { padding: 20px 18px calc(80px + var(--safe-bottom)); }
   .sidebar {
-    position: fixed; left: 0; top: 62px; bottom: 0; z-index: 60;
+    position: fixed; left: 0; top: var(--topbar-h); bottom: 0; z-index: 60;
     transform: translateX(-100%); transition: transform .25s; box-shadow: 4px 0 24px rgba(0,0,0,.15);
-    width: 290px; height: auto;
+    width: min(290px, 84vw); height: auto;
   }
   .sidebar.open { transform: translateX(0); }
-  .backdrop.show { display: block; position: fixed; inset: 62px 0 0 0; background: rgba(40,20,5,.4); z-index: 55; }
+  .backdrop.show { display: block; position: fixed; inset: var(--topbar-h) 0 0 0; background: rgba(40,20,5,.4); z-index: 55; }
   .reader { padding: 20px 20px 26px; }
   .search-wrap { max-width: none; }
   .brand-text em { display: none; }
+  .topbar { gap: 10px; }
+}
+
+/* सानो फोन्मा (<=700px) खोजी पाटी छुट्ने गरी ट्यापबार दुई पाटी बनाउनुहोस् */
+@media (max-width: 700px) {
+  .search-wrap { flex: 1 1 100%; max-width: none; margin-left: 0; order: 9; }
+  .font-tools { margin-left: auto; }
+  .hero { padding: 22px 20px; }
+  .hero h1 { font-size: 1.6rem; }
+  .canto-banner { padding: 20px 20px; }
+  .canto-banner h1 { font-size: 1.6rem; }
+  .theme-head { padding: 12px 14px; }
+}
+
+/* सानो फोन्मा (<=480px) पाठ र बटन सजिलै ट्याप गर्न मिल्ने गरी सेटिङ */
+@media (max-width: 480px) {
+  .main { padding: 16px 14px calc(70px + var(--safe-bottom)); }
+  .hero { padding: 18px 16px; }
+  .hero h1 { font-size: 1.45rem; }
+  .hero::after { font-size: 7rem; }
+  .hero-stats { gap: 14px; }
+  .hero-stat b { font-size: 1.25rem; }
+  .canto-banner { padding: 16px 16px; }
+  .canto-banner h1 { font-size: 1.45rem; }
+  .reader { padding: 18px 16px 24px; }
+  .reader h1 { font-size: 1.35rem; }
+  .reader h2 { font-size: 1.1rem; }
+  .shloka { padding: 16px 18px; }
+  .shloka .sa { font-size: 1.06rem; }
+  .chapter-list { padding: 4px 6px; }
+  .chapter-row { padding: 9px 8px; }
+  .chapter-row .cr-no { min-width: 34px; height: 34px; font-size: .85rem; }
+  .reader-actions { gap: 8px; }
+  .btn { padding: 10px 14px; font-size: .9rem; }
+  .read-toggle { font-size: .88rem; }
+  .topbar { padding-left: 14px; padding-right: 14px; }
+  .nav-ch { padding: 6px 8px; }
+  .section-h { font-size: 1.2rem; }
+}
+
+/* ल्यान्ड्सेप्ट फोन्मा (म्याक्स हाइट ५२०px भन्दा कम) उचाइ अभाव हुन नदिनुहोस् */
+@media (orientation: landscape) and (max-height: 520px) and (max-width: 900px) {
+  .topbar { padding-top: calc(6px + var(--safe-top)); padding-bottom: 6px; }
+  .main { padding-top: 14px; padding-bottom: calc(50px + var(--safe-bottom)); }
+  .reader { padding: 16px 18px 20px; }
+  .sidebar { top: var(--topbar-h); }
+  .backdrop.show { inset: var(--topbar-h) 0 0 0; }
 }
