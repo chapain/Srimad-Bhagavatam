@@ -15,7 +15,7 @@
     { id: 9,  name: 'नवम स्कन्ध',    roman: 'Navama Skandha',    tagline: 'सूर्य-र चन्द्र-वंशका राजाहरूको चरित्र',                          chapters: 24, color: '#a03472' },
     { id: 10, name: 'दशम स्कन्ध',    roman: 'Daśama Skandha',    tagline: 'श्रीकृष्ण-लीला — भागवतको हृदय (९० अध्याय)',                       chapters: 90, color: '#8a1f2d' },
     { id: 11, name: 'एकादश स्कन्ध',  roman: 'Ekādaśa Skandha',  tagline: 'उद्धवगीता, यदु-वंशको स्वधाम-गमन',                             chapters: 31, color: '#1f6e6e' },
-    { id: 12, name: 'द्वादश स्कन्ध', roman: 'Dvādaśa Skandha',  tagline: 'कलियुग-देश, परीक्षित्-मोक्ष र भागवत-फलश्रुति',                chapters: 13, color: '#7a5a20' }
+    { id: 12, name: 'द्वादश स्कन्ध', roman: 'Dvādaśa Skandha',  tagline: 'कलियुगका लक्षण, परीक्षित्-मोक्ष र भागवत-फलश्रुति',                chapters: 13, color: '#7a5a20' }
   ];
 
   const CONTENT = window.BHAGAVATA_CONTENT || {};

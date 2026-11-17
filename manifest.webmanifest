@@ -1,0 +1,34 @@
+{
+  "id": "./",
+  "name": "श्रीमद्भागवत महापुराण — नेपाली अध्ययन",
+  "short_name": "नेपाली भागवत",
+  "description": "श्रीमद्भागवतका बाह्रै स्कन्धका अध्यायगत नेपाली सारांश, विषयगत विभाजन र चयनित श्लोकहरू।",
+  "lang": "ne",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "background_color": "#f6f2e9",
+  "theme_color": "#24483d",
+  "categories": ["education", "books"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
