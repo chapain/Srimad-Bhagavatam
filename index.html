@@ -3,6 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#24483d">
+<meta name="description" content="श्रीमद्भागवतका बाह्रै स्कन्धका अध्यायगत नेपाली सारांश, विषयगत विभाजन र चयनित श्लोकहरू।">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="नेपाली भागवत">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+<link rel="apple-touch-icon" href="assets/icons/icon-192.png">
 <title>श्रीमद्भागवत महापुराण — नेपाली अध्ययन</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,6 +48,24 @@
 <script src="data/canto-01.js"></script>
 <script src="data/canto-02.js"></script>
 <script src="data/canto-03.js"></script>
+<script src="data/canto-04.js"></script>
+<script src="data/canto-05.js"></script>
+<script src="data/canto-06.js"></script>
+<script src="data/canto-07.js"></script>
+<script src="data/canto-08.js"></script>
+<script src="data/canto-09.js"></script>
+<script src="data/canto-10.js"></script>
+<script src="data/canto-11.js"></script>
+<script src="data/canto-12.js"></script>
 <script src="assets/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js').catch((error) => {
+        console.warn('अफलाइन सेवा सुरु हुन सकेन:', error);
+      });
+    });
+  }
+</script>
 </body>
 </html>

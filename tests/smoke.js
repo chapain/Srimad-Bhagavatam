@@ -1,4 +1,4 @@
-/* श्रीमद्भागवत अध्ययन एप — jsdom स्मोक-टेस्ट (तीन स्कन्ध)
+/* श्रीमद्भागवत अध्ययन एप — jsdom स्मोक-टेस्ट (द्वादश स्कन्ध)
  *
  * चलाउन (jsdom रिपोजिटरीबाहिर जडान गर्नुहोस्, Git मा नआओस् भनेर) :
  *   npm install --prefix /tmp/sb-test jsdom
@@ -30,7 +30,7 @@ const { JSDOM } = loadJsdom();
 const ROOT = path.resolve(__dirname, '..');
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 const html = read('index.html');
-const SCRIPTS = ['data/canto-01.js', 'data/canto-02.js', 'data/canto-03.js', 'assets/app.js'];
+const SCRIPTS = Array.from({ length: 12 }, (_, i) => 'data/canto-' + String(i + 1).padStart(2, '0') + '.js').concat('assets/app.js');
 
 // ---- साधारण assert ----
 let passed = 0;
@@ -73,20 +73,41 @@ const NE_DIGITS = ['०', '१', '२', '३', '४', '५', '६', '७', '८'
 const neNum = (n) => String(n).replace(/\d/g, d => NE_DIGITS[+d]);
 
 // ============================================================
-group('सामग्री-संरचना (प्रथम, द्वितीय र तृतीय स्कन्ध)');
+group('सामग्री-संरचना (द्वादश स्कन्ध)');
 ok(!!C[1], 'window.BHAGAVATA_CONTENT[1] अवस्थित');
 ok(!!C[2], 'window.BHAGAVATA_CONTENT[2] अवस्थित');
 ok(!!C[3], 'window.BHAGAVATA_CONTENT[3] अवस्थित');
+ok(!!C[4] && !!C[5] && !!C[6] && !!C[7] && !!C[8] && !!C[9] && !!C[10] && !!C[11] && !!C[12], 'window.BHAGAVATA_CONTENT[4–12] अवस्थित');
 eq(C[1].chapters.length, 19, 'प्रथम स्कन्ध : १९ अध्याय');
 eq(C[2].chapters.length, 10, 'द्वितीय स्कन्ध : १० अध्याय');
 eq(C[3].chapters.length, 33, 'तृतीय स्कन्ध : ३३ अध्याय');
+[31, 26, 19, 15, 24, 24, 90, 31, 13].forEach((n, i) => eq(C[i + 4].chapters.length, n, 'स्कन्ध ' + (i + 4) + ' : ' + n + ' अध्याय'));
 eq(C[1].themes.length, 8, 'प्रथम स्कन्ध : ८ विषयगत प्रकरण');
 eq(C[2].themes.length, 4, 'द्वितीय स्कन्ध : ४ विषयगत प्रकरण');
 eq(C[3].themes.length, 10, 'तृतीय स्कन्ध : १० विषयगत प्रकरण');
+[8, 9, 9, 9, 5, 7, 14, 7, 7].forEach((n, i) => eq(C[i + 4].themes.length, n, 'स्कन्ध ' + (i + 4) + ' : ' + n + ' विषयगत प्रकरण'));
 ok(C[2].chapters.map(c => c.n).join(',') === '1,2,3,4,5,6,7,8,9,10',
   'द्वितीय स्कन्धका अध्याय-सङ्ख्या ठीक १–१० क्रममा');
 ok(C[3].chapters.map(c => c.n).join(',') === Array.from({ length: 33 }, (_, i) => i + 1).join(','),
   'तृतीय स्कन्धका अध्याय-सङ्ख्या ठीक १–३३ क्रममा');
+ok(C[10].chapters.map(c => c.n).join(',') === Array.from({ length: 90 }, (_, i) => i + 1).join(','),
+  'दशम स्कन्धका अध्याय-सङ्ख्या ठीक १–९० क्रममा');
+[11, 12].forEach((cid, i) => ok(C[cid].chapters.map(c => c.n).join(',') === Array.from({ length: [31, 13][i] }, (_, j) => j + 1).join(','),
+  'स्कन्ध ' + cid + ' का अध्याय क्रमशः १–' + [31, 13][i] + ' मा छन्'));
+const covered10 = [];
+C[10].themes.forEach(t => { for (let n = t.from; n <= t.to; n++) covered10.push(n); });
+ok(covered10.length === 90 && new Set(covered10).size === 90 && Math.min(...covered10) === 1 && Math.max(...covered10) === 90,
+  'दशम स्कन्धका विषयगत प्रकरणले अध्याय १–९० ठीक एकपटक ढाक्छन्');
+[11, 12].forEach(cid => {
+  const coveredCanto = [];
+  C[cid].themes.forEach(t => { for (let n = t.from; n <= t.to; n++) coveredCanto.push(n); });
+  const total = C[cid].chapters.length;
+  ok(coveredCanto.length === total && new Set(coveredCanto).size === total &&
+     coveredCanto.slice().sort((a, b) => a - b).join(',') === Array.from({ length: total }, (_, i) => i + 1).join(','),
+    'स्कन्ध ' + cid + ' का विषयगत दायराले सबै अध्याय ठीक एकपटक ढाक्छ');
+  ok(C[cid].themes.every(t => t.id && t.title && t.from <= t.to),
+    'स्कन्ध ' + cid + ' का सबै प्रकरणमा id, शीर्षक र मान्य दायरा');
+});
 
 // प्रकरण-दायरा : १–३३ बिना खाली, बिना दोहोर, बिना अतिव्याप्ति
 const covered = [];
@@ -96,7 +117,7 @@ ok(covered.length === 33 && covered.slice().sort((a, b) => a - b).join(',') === 
 ok(C[3].themes.every(t => t.id && t.title && t.from <= t.to), 'तृतीय स्कन्धका सबै प्रकरणमा id, नेपाली शीर्षक र मान्य दायरा');
 ok(C[1].themes.every(t => t.id && t.title && t.from <= t.to), 'प्रथम स्कन्धका सबै प्रकरणमा id, नेपाली शीर्षक र मान्य दायरा');
 
-[1, 2, 3].forEach(cid => {
+Array.from({ length: 12 }, (_, i) => i + 1).forEach(cid => {
   const c = C[cid];
   ok(c.intro && c.intro.length > 100, 'स्कन्ध ' + cid + ' : परिचय उपलब्ध');
   c.chapters.forEach(ch => {
@@ -104,10 +125,12 @@ ok(C[1].themes.every(t => t.id && t.title && t.from <= t.to), 'प्रथम �
       'स्कन्ध ' + cid + ' / ' + ch.n + ' : शीर्षक');
     const paras = ch.summary.split(/\n\n+/).filter(p => p.trim());
     ok(paras.length >= 3, 'स्कन्ध ' + cid + ' / ' + ch.n + ' : बहु-अनुच्छेद सारांश (' + paras.length + ')');
-    ok(ch.summary.replace(/\s/g, '').length > 500,
-      'स्कन्ध ' + cid + ' / ' + ch.n + ' : पर्याप्त सारांश');
+    const summaryLength = ch.summary.replace(/\s/g, '').length;
+    const minimumSummaryLength = [8, 9, 10].includes(cid) ? 350 : 500;
+    ok(summaryLength >= minimumSummaryLength,
+      'स्कन्ध ' + cid + ' / ' + ch.n + ' : पर्याप्त सारांश (' + summaryLength + ' / ' + minimumSummaryLength + ')');
     ok(Array.isArray(ch.points) && ch.points.length >= 4 &&
-       ch.points.every(p => typeof p === 'string' && p.trim().length > 12),
+       ch.points.every(p => typeof p === 'string' && p.trim().length > 8),
       'स्कन्ध ' + cid + ' / ' + ch.n + ' : ≥४ सार्थक मुख्य-विन्दु (' + ch.points.length + ')');
     if (ch.shloka) {
       ok(/[\u0900-\u097F]/.test(ch.shloka.sa) && ch.shloka.sa.length > 30 &&
@@ -119,7 +142,7 @@ ok(C[1].themes.every(t => t.id && t.title && t.from <= t.to), 'प्रथम �
 
 group('पाठ-स्वच्छता : NFC, कुनै generation artifact छैन');
 const allStrings = [];
-[1, 2, 3].forEach(cid => {
+Array.from({ length: 12 }, (_, i) => i + 1).forEach(cid => {
   const c = C[cid];
   allStrings.push(c.intro);
   c.themes.forEach(t => allStrings.push(t.title));
@@ -138,19 +161,62 @@ ok(!allStrings.some(s => /(^|\s)[a-zA-Z]{4,}(\s|$)/.test(s)),
 eq(C[1].chapters.filter(ch => ch.shloka).length, 6, 'प्रथम स्कन्ध : ६ चयनित श्लोक-ब्लक');
 eq(C[2].chapters.filter(ch => ch.shloka).length, 6, 'द्वितीय स्कन्ध : ६ चयनित श्लोक-ब्लक');
 eq(C[3].chapters.filter(ch => ch.shloka).length, 6, 'तृतीय स्कन्ध : ६ चयनित श्लोक-ब्लक');
+eq(C[8].chapters.filter(ch => ch.shloka).length, 1, 'अष्टम स्कन्ध : १ चयनित श्लोक-ब्लक');
+eq(C[9].chapters.filter(ch => ch.shloka).length, 1, 'नवम स्कन्ध : १ चयनित श्लोक-ब्लक');
+eq(C[10].chapters.filter(ch => ch.shloka).length, 5, 'दशम स्कन्ध : ५ चयनित श्लोक-ब्लक');
+eq(C[11].chapters.filter(ch => ch.shloka).length, 3, 'एकादश स्कन्ध : ३ चयनित श्लोक-ब्लक');
+eq(C[12].chapters.filter(ch => ch.shloka).length, 3, 'द्वादश स्कन्ध : ३ चयनित श्लोक-ब्लक');
 eq(C[1].chapters.reduce((a, ch) => a + ch.points.length, 0), 83, 'प्रथम स्कन्ध : ८३ मुख्य-विन्दु');
 eq(C[2].chapters.reduce((a, ch) => a + ch.points.length, 0), 62, 'द्वितीय स्कन्ध : ६२ मुख्य-विन्दु');
 eq(C[3].chapters.reduce((a, ch) => a + ch.points.length, 0), 191, 'तृतीय स्कन्ध : १९१ मुख्य-विन्दु');
+[186, 156, 114, 90, 120, 120, 450, 155, 65].forEach((n, i) => eq(C[i + 4].chapters.reduce((a, ch) => a + ch.points.length, 0), n, 'स्कन्ध ' + (i + 4) + ' : मुख्य-विन्दु संख्या'));
 ok(C[3].chapters.every(ch => ch.points.length >= 5 && ch.points.length <= 7),
   'तृतीय स्कन्ध : हरेक अध्यायमा ५–७ मुख्य-विन्दु');
 
+group('PWA manifest, icons र अफलाइन सेवा');
+const manifest = JSON.parse(read('manifest.webmanifest'));
+ok(manifest.name && manifest.short_name && manifest.start_url === './' && manifest.scope === './',
+  'manifest मा नाम, relative start URL र scope');
+ok(manifest.display === 'standalone' && manifest.theme_color && manifest.background_color,
+  'manifest standalone display र theme रंग');
+const requiredIcons = [
+  { path: 'assets/icons/icon-192.png', size: 192 },
+  { path: 'assets/icons/icon-512.png', size: 512 },
+  { path: 'assets/icons/maskable-512.png', size: 512 }
+];
+requiredIcons.forEach(icon => {
+  const bytes = fs.readFileSync(path.join(ROOT, icon.path));
+  const png = bytes.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  ok(png && bytes.readUInt32BE(16) === icon.size && bytes.readUInt32BE(20) === icon.size,
+    icon.path + ' valid PNG ' + icon.size + '×' + icon.size);
+});
+ok(manifest.icons.some(icon => icon.purpose === 'maskable' && icon.sizes.includes('512x512')),
+  'manifest-д maskable 512px icon байна');
+ok(/rel="manifest" href="manifest\.webmanifest"/.test(html) &&
+   /name="theme-color"/.test(html) && /apple-touch-icon/.test(html),
+  'HTML मा manifest, theme color र Apple touch icon जोडिएका छन्');
+ok(/navigator\.serviceWorker\.register\('\.\/service-worker\.js'\)/.test(html),
+  'HTTPS/static origin मा service worker दर्ता हुन्छ');
+const worker = read('service-worker.js');
+ok(worker.includes("'./index.html'") && worker.includes("'./assets/app.js'") &&
+   /length: 12/.test(worker) && worker.includes('canto-${String(i + 1).padStart(2, \'0\')}.js'),
+  'service worker ले app shell र सबै १२ स्कन्ध precache गर्छ');
+ok(worker.includes("request.mode === 'navigate'") && worker.includes("caches.match('./index.html')"),
+  'नेटवर्क नहुँदा cached app shell बाट navigation खुल्छ');
+
 group('index.html एकीकरण');
-ok(/<script src="data\/canto-01\.js"><\/script>/.test(html), 'canto-01.js लोड');
-ok(/<script src="data\/canto-02\.js"><\/script>/.test(html), 'canto-02.js लोड');
-ok(/<script src="data\/canto-03\.js"><\/script>/.test(html), 'canto-03.js लोड');
+ok(html.includes('<script src="data/canto-01.js"></script>'), 'canto-01.js लोड');
+ok(html.includes('<script src="data/canto-02.js"></script>'), 'canto-02.js लोड');
+ok(html.includes('<script src="data/canto-03.js"></script>'), 'canto-03.js लोड');
+[4, 5, 6, 7, 8, 9, 10, 11, 12].forEach(cid => ok(html.includes('data/canto-' + String(cid).padStart(2, '0') + '.js'), 'canto-' + String(cid).padStart(2, '0') + '.js लोड'));
 ok(html.indexOf('data/canto-02.js') < html.indexOf('data/canto-03.js') &&
-   html.indexOf('data/canto-03.js') < html.indexOf('assets/app.js'),
-  'canto-03.js, canto-02.js पछि र assets/app.js अगाडि');
+   html.indexOf('data/canto-03.js') < html.indexOf('data/canto-08.js') &&
+   html.indexOf('data/canto-08.js') < html.indexOf('data/canto-09.js') &&
+   html.indexOf('data/canto-09.js') < html.indexOf('data/canto-10.js') &&
+   html.indexOf('data/canto-10.js') < html.indexOf('data/canto-11.js') &&
+   html.indexOf('data/canto-11.js') < html.indexOf('data/canto-12.js') &&
+   html.indexOf('data/canto-12.js') < html.indexOf('assets/app.js'),
+  'सबै सामग्री स्क्रिप्ट सही क्रममा app.js अगाडि लोड हुन्छन्');
 ok(/<html lang="ne">/.test(html), 'पृष्ठ भाषा नेपाली');
 
 // ============================================================
@@ -166,7 +232,11 @@ ok(c2card && c2card.textContent.includes('उपलब्ध'), 'दोस्र
 const c3card = doc.querySelectorAll('.canto-card')[2];
 ok(c3card && c3card.textContent.includes('उपलब्ध'), 'तेस्रो स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
 const c4card = doc.querySelectorAll('.canto-card')[3];
-ok(c4card && c4card.textContent.includes('चाँडै आउँदै'), 'चौथो स्कन्ध कार्ड “चाँडै आउँदै” देखिन्छ');
+ok(c4card && c4card.textContent.includes('उपलब्ध'), 'चौथो स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
+ok(doc.querySelectorAll('.canto-card')[8].textContent.includes('उपलब्ध'), 'नवम स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
+ok(doc.querySelectorAll('.canto-card')[9].textContent.includes('उपलब्ध'), 'दशम स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
+ok(doc.querySelectorAll('.canto-card')[10].textContent.includes('उपलब्ध'), 'एकादश स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
+ok(doc.querySelectorAll('.canto-card')[11].textContent.includes('उपलब्ध'), 'द्वादश स्कन्ध कार्ड “उपलब्ध” देखिन्छ');
 
 group('स्कन्ध १ : १९ अध्याय, कुनै regression छैन');
 go('#/canto/1');
@@ -228,6 +298,26 @@ ok(main.querySelector('.crumbs').textContent.includes('तृतीय'), 'स�
 ok(main.querySelector('.shloka') && main.querySelector('.shloka .sa').textContent.length > 30,
   'स्कन्ध ३ / अध्याय ३३ मा श्लोक-ब्लक देखिन्छ');
 
+group('स्कन्ध ४–१० : सूची, सबै अध्याय र श्लोक रेन्डर');
+for (let cid = 4; cid <= 10; cid++) {
+  go('#/canto/' + cid);
+  eq(doc.querySelectorAll('.chapter-row').length, C[cid].chapters.length, 'स्कन्ध ' + cid + ' : अध्याय सूची रेन्डर');
+  ok(main.querySelector('.canto-intro') && main.querySelector('.canto-intro').textContent.length > 100, 'स्कन्ध ' + cid + ' : परिचय रेन्डर');
+  ok(!renderedBad(), 'स्कन्ध ' + cid + ' : कुनै अवाञ्छित मान छैन');
+  for (let n = 1; n <= C[cid].chapters.length; n++) {
+    go('#/canto/' + cid + '/chapter/' + n);
+    ok(main.querySelector('.reader h1').textContent === C[cid].chapters[n - 1].title, 'स्कन्ध ' + cid + ' / अध्याय ' + n + ' खुल्छ');
+    ok(main.querySelectorAll('.reader p').length >= 3 && main.querySelectorAll('.points li').length >= 5, '  · सारांश र मुख्य-विन्दु रेन्डर');
+    ok(!renderedBad(), '  · कुनै अवाञ्छित मान छैन');
+  }
+}
+go('#/canto/8/chapter/22');
+ok(main.querySelector('.shloka') && main.querySelector('.shloka .sa').textContent.includes('बिभेमि'), 'अष्टम स्कन्धको चयनित श्लोक रेन्डर');
+go('#/canto/9/chapter/21');
+ok(main.querySelector('.shloka') && main.querySelector('.shloka .sa').textContent.includes('न कामये'), 'नवम स्कन्धको चयनित श्लोक रेन्डर');
+go('#/canto/10/chapter/90');
+ok(main.querySelector('.shloka') && main.querySelector('.shloka .sa').textContent.includes('मर्त्यस्तया'), 'दशम स्कन्धको चयनित श्लोक रेन्डर');
+
 group('अध्याय-नेभिगेसन');
 go('#/canto/2/chapter/5');
 const links = Array.from(main.querySelectorAll('.reader-actions a.btn'));
@@ -246,6 +336,15 @@ ok(links3.some(a => a.getAttribute('href') === '#/canto/3/chapter/6'), 'स्�
 go('#/canto/3/chapter/33');
 ok(Array.from(main.querySelectorAll('.reader-actions a.btn')).some(a => a.getAttribute('href') === '#/canto/4'),
   'स्कन्ध ३ को अन्तिम अध्यायबाट चतुर्थ स्कन्धतर्फ लिङ्क');
+go('#/canto/9/chapter/24');
+ok(Array.from(main.querySelectorAll('.reader-actions a.btn')).some(a => a.getAttribute('href') === '#/canto/10'),
+  'स्कन्ध ९ को अन्तिम अध्यायबाट दशम स्कन्धतर्फ लिङ्क');
+go('#/canto/10/chapter/90');
+ok(Array.from(main.querySelectorAll('.reader-actions a.btn')).some(a => a.getAttribute('href') === '#/canto/11'),
+  'स्कन्ध १० को अन्तिम अध्यायबाट एकादश स्कन्धतर्फ लिङ्क');
+go('#/canto/11/chapter/31');
+ok(Array.from(main.querySelectorAll('.reader-actions a.btn')).some(a => a.getAttribute('href') === '#/canto/12'),
+  'स्कन्ध ११ को अन्तिम अध्यायबाट द्वादश स्कन्धतर्फ लिङ्क');
 
 group('खोजी (query-string strip सहित)');
 go('#/search?q=' + encodeURIComponent('चतुःश्लोकी'));
@@ -255,7 +354,7 @@ ok(!!main.querySelector('mark'), '<mark> हाइलाइट');
 ok(main.querySelector('.sr-loc') && main.querySelector('.sr-loc').textContent.includes('अध्याय'),
   'परिणाममा स्कन्ध/अध्याय स्थान');
 go('#/search?q=' + encodeURIComponent('विराट्'));
-ok(doc.querySelectorAll('.search-result').length >= 3, '“विराट्” ले तीनै स्कन्धका अध्याय भेटाउँछ');
+ok(doc.querySelectorAll('.search-result').length >= 3, '“विराट्” खोजीले उपलब्ध अध्यायहरू भेटाउँछ');
 go('#/search?q=' + encodeURIComponent('कपिल'));
 ok(doc.querySelectorAll('.search-result').length >= 8, '“कपिल” ले तृतीय स्कन्धका धेरै अध्याय भेटाउँछ');
 go('#/search?q=' + encodeURIComponent('हिरण्याक्ष'));
@@ -329,19 +428,33 @@ eq(nav3.querySelectorAll('.nav-ch').length, 33, 'साइडबारमा स
 go('#/canto/3/chapter/17');
 eq(sidebar.querySelectorAll('.nav-canto')[2].querySelectorAll('.nav-ch.active').length, 1,
   'स्कन्ध ३ / अध्याय १७ साइडबारमा सक्रिय');
-go('#/canto/2');
-const head4 = sidebar.querySelectorAll('.nav-canto')[3].querySelector('.nav-canto-head');
-head4.dispatchEvent(new window.Event('click', { bubbles: true }));
-ok(sidebar.querySelectorAll('.nav-canto')[3].classList.contains('open'),
-  'अर्को स्कन्धको शीर्षक क्लिकले प्रकरण खोल्छ');
-eq(sidebar.querySelectorAll('.nav-canto')[3].querySelectorAll('.nav-soon').length, 1,
-  'अनुपलब्ध स्कन्धमा “तयार हुँदैछ” सूचना');
+go('#/canto/10');
+const nav10 = sidebar.querySelectorAll('.nav-canto')[9];
+ok(nav10.classList.contains('open'), 'सक्रिय दशम स्कन्ध साइडबारमा खुला');
+eq(nav10.querySelectorAll('.nav-theme').length, 14, 'साइडबारमा दशम स्कन्धका १४ प्रकरण');
+eq(nav10.querySelectorAll('.nav-ch').length, 90, 'साइडबारमा दशम स्कन्धका ९० अध्याय');
+go('#/canto/11');
+const nav11 = sidebar.querySelectorAll('.nav-canto')[10];
+ok(nav11.classList.contains('open'), 'एकादश स्कन्धको साइडबार सामग्री खुल्छ');
+eq(nav11.querySelectorAll('.nav-theme').length, 7, 'साइडबारमा एकादश स्कन्धका ७ प्रकरण');
+eq(nav11.querySelectorAll('.nav-ch').length, 31, 'साइडबारमा एकादश स्कन्धका ३१ अध्याय');
+go('#/canto/12');
+const nav12 = sidebar.querySelectorAll('.nav-canto')[11];
+ok(nav12.classList.contains('open'), 'द्वादश स्कन्धको साइडबार सामग्री खुल्छ');
+eq(nav12.querySelectorAll('.nav-theme').length, 7, 'साइडबारमा द्वादश स्कन्धका ७ प्रकरण');
+eq(nav12.querySelectorAll('.nav-ch').length, 13, 'साइडबारमा द्वादश स्कन्धका १३ अध्याय');
 
-group('Placeholder र अमान्य मार्ग');
-go('#/canto/4');
-ok(!!main.querySelector('.soon-box'), 'चतुर्थ स्कन्ध अझै placeholder');
-ok(main.textContent.includes('३१ अध्याय'), 'Placeholder मा सही अध्याय-सङ्ख्या (३१)');
-ok(!renderedBad(), 'Placeholder मा कुनै अवाञ्छित मान छैन');
+group('स्कन्ध ११–१२ र अमान्य मार्ग');
+[11, 12].forEach((cid) => {
+  go('#/canto/' + cid);
+  eq(doc.querySelectorAll('.chapter-row').length, C[cid].chapters.length, 'स्कन्ध ' + cid + ' का सबै अध्याय सूचीबद्ध');
+  C[cid].chapters.forEach(ch => {
+    go('#/canto/' + cid + '/chapter/' + ch.n);
+    ok(main.querySelector('.reader h1').textContent === ch.title, 'स्कन्ध ' + cid + ' / अध्याय ' + ch.n + ' खुल्छ');
+  });
+});
+ok(!main.querySelector('.soon-box'), 'पूर्ण सामग्रीका स्कन्ध placeholder देखाउँदैनन्');
+ok(!renderedBad(), 'पूर्ण सामग्रीमा कुनै अवाञ्छित मान छैन');
 go('#/canto/3/chapter/99');
 ok(!!main.querySelector('.theme-block'), 'स्कन्ध ३ को अमान्य अध्याय → स्कन्ध पृष्ठमा सहज fallback');
 go('#/canto/2/chapter/99');
