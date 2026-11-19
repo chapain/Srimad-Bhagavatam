@@ -171,12 +171,8 @@
       "Manmatha Nath Dutt public-domain English translation (Internet Archive OCR)": "Not usable here: archive.org is unreachable from this environment, the OCR is acknowledged as defective, and the translation gives no verse numbers. Retained only as a historical drafting aid."
     },
     "known_source_defects": {
-      "description": "Verse-boundary defects observed in the accepted reference while reviewing. They are recorded so a later reviewer does not mistake them for summary errors.",
+      "description": "Verse-boundary defects observed in the accepted reference while reviewing. They are recorded so a later reviewer does not mistake them for summary errors. Each entry states what the page actually prints and how the count is therefore taken; nothing is normalised silently.",
       "entries": [
-        {
-          "chapter": "04.21",
-          "issue": "Verse 45 is absent from the page; markers run 1-44 then 46-53, and the colophon of chapter 21 follows. The chapter therefore has 52 transcribed verses where the standard count is 53."
-        },
         {
           "chapter": "01.11",
           "issue": "The page marks 39 verses and carries no marker for verse 10 (earlier candidates give 40). Verse text is continuous and the summary check is unaffected; the count is recorded as 39."
@@ -195,37 +191,47 @@
         },
         {
           "chapter": "04.02",
-          "issue": "The page prints an anomalous marker '॥ २ ॥ ६ ॥' after verse 6. Verse text is continuous from 1 to 36; the marker is recorded here and the range kept as 1-36."
+          "issue": "Verse 26 is printed with its numeral split as '॥ २ ॥ ६ ॥' (i.e. '२६'). Read as 26, the markers then run contiguously 1-35, which is also the standard count for this chapter. The range is therefore 1-35, not 1-36."
         },
         {
-          "chapter": "04.10",
-          "issue": "The page prints '॥ ॥ ६ ॥' for verse 6. The chapter's last marker is 30; the range is kept as 1-30."
-        },
-        {
-          "chapter": "04.15",
-          "issue": "The page prints '॥ ॥ ६ ॥' for verse 6. Range 1-26."
-        },
-        {
-          "chapter": "04.16",
-          "issue": "The page prints '॥ ॥ ६ ॥' for verse 6. Range 1-27."
-        },
-        {
-          "chapter": "04.17",
-          "issue": "The page prints '॥ ॥ ६ ॥' for verse 6. Range 1-36."
+          "chapter": "04.21",
+          "issue": "No marker for verse 45 appears; the sequence jumps from '॥ ४४ ॥' to '॥ ४६ ॥'. The verse text itself is continuous, so 53 verses are present and only the numeral is skipped. The range is pinned as 1-53."
         },
         {
           "chapter": "04.22",
-          "issue": "The page prints '॥ १ ॥ ६ ॥' for verse 6 and '॥ ३ ॥ ६ ॥' for verse 36. Range 1-64."
+          "issue": "Verse 36 is printed with its numeral split as '॥ ३ ॥ ६ ॥' (i.e. '३६'), and '॥ ६२ ॥' appears twice. With the duplicate read as the failure it is, the page ends at '॥ ६३ ॥'; the standard chapter has 64 verses, so one verse-numeral is lost on the page. The range is recorded as printed, 1-63."
         },
         {
-          "chapter": "04.23",
-          "issue": "The page prints two verses numbered '॥ ३५ ॥'. The second is the closing half-verse of the phalaśruti; the range is kept as 1-39."
+          "chapter": "04.24",
+          "issue": "The marker '॥ ११ ॥' is printed twice, on 'यां वीक्ष्य चारुसर्वाङ्गीं…' and on the following 'परिक्रमन्तीं उद्वाहे…'. Verses are counted individually; the page's last marker is 79."
         }
-      ]
+      ],
+      "typographical_notes": {
+        "description": "Formatting faults that do not change the verse count. They are listed once rather than chapter by chapter, because the numeral in each case is the correct one.",
+        "entries": [
+          {
+            "chapters": [
+              "04.10",
+              "04.16",
+              "04.24"
+            ],
+            "issue": "A doubled dāṇḍa precedes the verse marker, e.g. 'उपदेव्योऽत्रसन्भृशम् ॥ ॥ ६ ॥' in 4.10 and '…विभुः ॥ ॥ ६ ॥' in 4.16; in 4.24 the same doubling runs through verses 60-68 ('…विस्तृतम् ॥ ॥ ६० ॥'). The numeral following the doubled dāṇḍa is the correct verse number, so the count is unaffected."
+          },
+          {
+            "chapters": [
+              "04.15",
+              "04.17",
+              "04.23"
+            ],
+            "issue": "Markers on these pages were re-read and found to be unremarkable: 4.15 runs 1-26 and 4.17 runs 1-36 with single correct markers, and 4.23 runs 1-39. An earlier note recording duplicate or doubled markers on these three pages was mistaken and has been withdrawn."
+          }
+        ]
+      }
     },
     "review_tooling": [
       "tools/ws-review.js - emits the raw-wikitext and revision-pin URLs for a chapter, measures a saved snapshot's verse range, and audits manifest consistency",
-      "tools/name-consistency.js - flags near-duplicate Devanagari spellings of the same proper noun across chapters"
+      "tools/name-consistency.js - flags near-duplicate Devanagari spellings of the same proper noun across chapters",
+      "tools/ws-review.js ranges also reports blank_markers and merged_numeral_markers, so a split or doubled numeral is visible in the tool output instead of silently changing a count."
     ]
   },
   "chapters": [
@@ -2692,16 +2698,16 @@
         "retrieved": "2026-11-19",
         "reference_role": "accepted_reference"
       },
-      "verse_range": "1-36",
+      "verse_range": "1-35",
       "reviewer": "Arena agent (AI-assisted)",
       "reviewed_at": "2026-11-19",
-      "notes": "36 verses; speakers Maitreya, the sages. Confirmed: Dakṣa's entry into the assembly and his open reviling of Śiva — 'this one called Śiva is not auspicious' — before the gods and sages (vv. 9-16), Nandīśvara's curse on Dakṣa and the brāhmaṇas who laughed and on those who follow him (vv. 21-25), and Bhṛgu's answering curse that the Śiva-worshippers will be heretics and that the mantra-vāda will be ruined (vv. 28-32). The page prints the anomalous marker '॥ २ ॥ ६ ॥' after verse 6; the last marker is 36. Corrected during review: the draft presented the curses symmetrically and missed Bhṛgu's specific curse of the Pāṣaṇḍin path.",
+      "notes": "35 verses (verse 26 is printed with a split numeral); speakers Maitreya, the sages. Confirmed: Dakṣa's entry into the assembly and his open reviling of Śiva — 'this one called Śiva is not auspicious' — before the gods and sages (vv. 9-16), Nandīśvara's curse on Dakṣa and the brāhmaṇas who laughed and on those who follow him (vv. 21-25), and Bhṛgu's answering curse that the Śiva-worshippers will be heretics and that the mantra-vāda will be ruined (vv. 28-32). Verse 26 is printed with a split numeral ('॥ २ ॥ ६ ॥'), after which the markers run contiguously to 35. Corrected during review: the draft presented the curses symmetrically and missed Bhṛgu's specific curse of the Pāṣaṇḍin path.",
       "candidate_verse_range": "1-35",
       "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 174,
       "expansion_triage": "length_check_only",
       "review_stage": "source_checked",
-      "verse_count_in_reference": 36,
+      "verse_count_in_reference": 35,
       "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
       "checks": {
         "chapter_mapping": "pass",
@@ -3436,7 +3442,7 @@
       "verse_range": "1-52",
       "reviewer": "Arena agent (AI-assisted)",
       "reviewed_at": "2026-11-19",
-      "notes": "Sabhā description and Prthu's address. Confirmed: the sabhā with brahmarṣis and rājarṣis (vv. 1-4), 'so the Brāhmaṇas consecrated Prthu' (v. 9), 'nowhere but in brāhmaṇa families' (v. 12) and the mahāsatra (v. 13), the description of Prthu (vv. 15-19), the reproach to the tax-gatherer who takes without teaching dharma (v. 24), 'there is one named the Lord of sacrifice' (v. 27), the paramparā of Manu, Uttānapāda, Dhruva, Priyavrata and others whose work the Lord does (vv. 28-29), the pādasevā-Gaṅgā that destroys the mind's dirt (v. 31), 'serve him with your own natures' (v. 33), the rule that the havi is eaten only by the Lord and not by the conscious-less fire (v. 41), 'that brahma which is eternal and without passion' (v. 42) and the pāda-reṇu on the head (v. 43), with the sādhu-vāda and the stuti of the assembly (vv. 46-53). The page carries no verse marker for 45 (see known_source_defects). Corrected during review: the draft put the whole address in Prthu's voice with no verse anchors and omitted the tax-gatherer passage and the paramparā list.",
+      "notes": "52 verse-markers (all 53 verses present; the numeral 45 is missing); Sabhā description and Prthu's address. Confirmed: the sabhā with brahmarṣis and rājarṣis (vv. 1-4), 'so the Brāhmaṇas consecrated Prthu' (v. 9), 'nowhere but in brāhmaṇa families' (v. 12) and the mahāsatra (v. 13), the description of Prthu (vv. 15-19), the reproach to the tax-gatherer who takes without teaching dharma (v. 24), 'there is one named the Lord of sacrifice' (v. 27), the paramparā of Manu, Uttānapāda, Dhruva, Priyavrata and others whose work the Lord does (vv. 28-29), the pādasevā-Gaṅgā that destroys the mind's dirt (v. 31), 'serve him with your own natures' (v. 33), the rule that the havi is eaten only by the Lord and not by the conscious-less fire (v. 41), 'that brahma which is eternal and without passion' (v. 42) and the pāda-reṇu on the head (v. 43), with the sādhu-vāda and the stuti of the assembly (vv. 46-53). The page carries no numeral for verse 45, though all 53 verses are present (see known_source_defects). Corrected during review: the draft put the whole address in Prthu's voice with no verse anchors and omitted the tax-gatherer passage and the paramparā list.",
       "candidate_verse_range": "1-53",
       "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 375,
@@ -3472,17 +3478,17 @@
         "retrieved": "2026-11-19",
         "reference_role": "accepted_reference"
       },
-      "verse_range": "1-64",
+      "verse_range": "1-63",
       "reviewer": "Arena agent (AI-assisted)",
       "reviewed_at": "2026-11-19",
-      "notes": "64 verses; speakers Maitreya, Prthu, Sanatkumāra. Confirmed: the four Kumāras' arrival and Prthu's ardghya and pādya (vv. 1-5), Prthu's questions (vv. 7-16), with 'hard to see even for yogis' (v. 7) and siddha-rūpī (v. 16), Sanatkumāra's long discourse (vv. 18-40) — 'satsang alone' (v. 19), 'non-attachment is the Self other than self' (v. 21), the śraddhā and yama ladder (vv. 22-25), 'the heart burns the living sheath' (v. 26), the serpent and the rope (vv. 28-29), the theft of memory (vv. 30-31), mokṣa as ātyantika (v. 35), 'I am that' (v. 37) and the Vāsudeva boat (v. 39-40) — Prthu's response (vv. 42-47) and the Kumāras' disappearance (v. 48), Prthu's karmas (vv. 49-52) and five sons (vv. 53-54), and the lokapāla similes (vv. 55-63). The page prints '॥ १ ॥ ६ ॥' for v. 6 and '॥ ३ ॥ ६ ॥' for v. 36. Corrected during review: the chapter's title and summary now reflect Sanatkumāra's ātma-kṣema teaching rather than a general 'conversation'.",
+      "notes": "63 verse-markers; speakers Maitreya, Prthu, Sanatkumāra. Confirmed: the four Kumāras' arrival and Prthu's ardghya and pādya (vv. 1-5), Prthu's questions (vv. 7-16), with 'hard to see even for yogis' (v. 7) and siddha-rūpī (v. 16), Sanatkumāra's long discourse (vv. 18-40) — 'satsang alone' (v. 19), 'non-attachment is the Self other than self' (v. 21), the śraddhā and yama ladder (vv. 22-25), 'the heart burns the living sheath' (v. 26), the serpent and the rope (vv. 28-29), the theft of memory (vv. 30-31), mokṣa as ātyantika (v. 35), 'I am that' (v. 37) and the Vāsudeva boat (v. 39-40) — Prthu's response (vv. 42-47) and the Kumāras' disappearance (v. 48), Prthu's karmas (vv. 49-52) and five sons (vv. 53-54), and the lokapāla similes (vv. 55-63). The page carries a doubled dāṇḍa before the v. 6 marker, prints v. 36 as '॥ ३ ॥ ६ ॥' and repeats '॥ ६२ ॥', ending at 63 where the standard chapter has 64. Corrected during review: the chapter's title and summary now reflect Sanatkumāra's ātma-kṣema teaching rather than a general 'conversation'.",
       "candidate_verse_range": "1-63",
       "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 440,
       "expansion_triage": "length_check_only",
       "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
       "review_stage": "source_checked",
-      "verse_count_in_reference": 64,
+      "verse_count_in_reference": 63,
       "checks": {
         "chapter_mapping": "pass",
         "verse_range": "pass",

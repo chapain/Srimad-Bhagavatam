@@ -37,12 +37,44 @@ function apiUrl(canto, chapter) {
     encodeURIComponent(titlePath(canto, chapter));
 }
 
-/* Printed verse numbers are Devanagari numerals inside "॥ २३ ॥" markers. */
-function verseNumbers(text) {
+/* Printed verse numbers are Devanagari numerals inside "॥ २३ ॥" markers.
+ *
+ * The transcription sometimes loses a numeral or runs two digits together, and
+ * both cases are stable and recognisable:
+ *   - "॥ ॥ ६ ॥"  - the verse number is blank (4.10, 4.15, 4.16, 4.17, 4.22 v.6)
+ *   - "॥ १ ॥ ६ ॥" - "२६" split into "२" + "६"; likewise "३ ॥ ६" for 36,
+ *                    "३ ॥५" for 35 and "६ ॥ २" for 62 (4.2, 4.22, 4.23)
+ * Both are reported as printed_form so the reviewer records them rather than
+ * silently normalising: the count is right even where the numeral is not.
+ */
+function markers(text) {
   const out = [];
-  for (const m of text.matchAll(/[\u0964\u0965]+\s*([०-९]+)\s*[\u0964\u0965]+/g)) {
-    out.push(Number([...m[1]].map((c) => DIGITS.indexOf(c)).join('')));
+  const re = /[\u0964\u0965]+\s*((?:[०-९]+\s*)?[\u0964\u0965]+(?:\s*[०-९]+\s*[\u0964\u0965]+)*)/g;
+  for (const m of text.matchAll(re)) {
+    const body = m[1];
+    const nums = [...body.matchAll(/[०-९]+/g)].map((d) =>
+      Number([...d[0]].map((c) => DIGITS.indexOf(c)).join('')));
+    if (nums.length === 0) out.push({ value: null, printed: m[0].trim() });
+    else if (nums.length === 1) out.push({ value: nums[0], printed: m[0].trim() });
+    else {
+      out.push({ value: Number(nums.map(String).join('')), printed: m[0].trim() });
+    }
   }
+  return out;
+}
+
+function verseNumbers(text) {
+  return markers(text).filter((x) => x.value !== null).map((x) => x.value);
+}
+
+/* Expected marker for the nth verse; used to spot merged or blank numerals. */
+function printedAnomalies(text) {
+  const list = markers(text).filter((m) => m.value !== null);
+  const out = [];
+  list.forEach((m, i) => {
+    const expected = i + 1;
+    if (m.value !== expected) out.push({ expected, printed: m.printed, read_as: m.value });
+  });
   return out;
 }
 
@@ -85,6 +117,8 @@ function analyse(canto, chapter) {
     contiguous: missing.length === 0,
     missing_verses: missing,
     repeated_markers: [...new Set(dupes)].sort((a, b) => a - b),
+    blank_markers: markers(text).filter((m) => m.value === null).map((m) => m.printed),
+    merged_numeral_markers: printedAnomalies(text),
     speakers: speakers(raw)
   };
 }
