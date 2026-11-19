@@ -11,7 +11,7 @@
       "mirror_note": "Per-chapter verse ranges came from the SanskritDocuments ITX metadata mirror. Selected candidate Sanskrit passages from Canto 1 chapters 1–19, Canto 2 chapters 1–10, Canto 3 chapters 1–33, Canto 4 chapters 8–24, and Canto 12 chapters 1–13 were consulted as narrative orientation during draft work; these were not full or verse-by-verse reviews. No new verse text was imported into the product by these draft expansions. The mirror has no declared license, and the exact edition remains unconfirmed. Selected candidate Sanskrit passages from Canto 5 chapters 1–26 were also consulted as narrative orientation; these were not full or verse-by-verse reviews. Chapter mappings and edition remain unverified. Canto 10 summaries also used a provisional Sanskrit verse dataset for narrative orientation; the dataset edition and chapter mapping were not independently verified, and no verse-by-verse review was performed."
     },
     "secondary_sources": "Public-domain Dutt OCR may assist narrative orientation only; never treat OCR as verified source text.",
-    "verified_chapters": 93,
+    "verified_chapters": 99,
     "editorially_approved_chapters": 0,
     "word_count_method": "Whitespace-delimited tokens; used for triage only.",
     "provisional_text_examined_chapters": [
@@ -204,6 +204,34 @@
         {
           "chapter": "04.24",
           "issue": "The marker '॥ ११ ॥' is printed twice, on 'यां वीक्ष्य चारुसर्वाङ्गीं…' and on the following 'परिक्रमन्तीं उद्वाहे…'. Verses are counted individually; the page's last marker is 79."
+        },
+        {
+          "chapter": "05.01",
+          "issue": "Twelve of the pages in this canto (5.1-5.6 among them) carry no verse numbers at all, only the running text with prose sentence numbers. The verse count is therefore taken from the printed paragraph numbers, and a verse reference in a summary points to that numbering, not to a marker on the page. 5.1 also contains, inside verse 30, an interpolated citation of a third-skandha verse with a Wikisource short-link; it is an editor's insertion, not part of the text."
+        },
+        {
+          "chapter": "05.02",
+          "issue": "The page has no verse markers and no chapter verse-numbers; the 23 verses are counted from the prose numbering, and the chapter's colophon omits the chapter figure."
+        },
+        {
+          "chapter": "05.03",
+          "issue": "The page has no verse markers; 18 verses counted from the prose numbering."
+        },
+        {
+          "chapter": "05.04",
+          "issue": "The page has no verse markers; 19 verses counted from the prose numbering. The colophon omits the chapter figure."
+        },
+        {
+          "chapter": "05.05",
+          "issue": "The page has no verse markers; 35 verses counted from the prose numbering."
+        },
+        {
+          "chapter": "05.06",
+          "issue": "The page has no verse markers; 19 verses counted from the prose numbering."
+        },
+        {
+          "chapter": "05.01b",
+          "issue": "The 40-verse count for 5.1 covers the numbered paragraphs of the printed page; the last two (vv. 38-40) are the closing praise spoken by the narrator."
         }
       ],
       "typographical_notes": {
@@ -3855,103 +3883,235 @@
       "id": "05.01",
       "canto": 5,
       "chapter": 1,
-      "title": "प्रियव्रतको कथा",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Expanded summary draft; candidate Sanskrit passages consulted for narrative orientation only. Chapter mapping, edition, interpretation, translation, and completeness remain unverified.",
+      "title": "प्रियव्रतको राज्याभिषेक, सप्त द्वीपको निर्माण र वैराग्य",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_१",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः १",
+        "pageid": 28002,
+        "revid": 349788,
+        "revision_timestamp": "2022-09-01T03:44:33Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-40",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "40 verses; speakers Vidura, Śuka, Brahmā, Priyavrata's sons. Confirmed: Vidura's question how an ātmārāma could live in a house that breeds karma-bandha (vv. 1-4), the answer that the devotee absorbed in the Lord's lotus-feet is not turned aside by minor obstacles (v. 5), Priyavrata's refusal of the brahma-satra initiation while absorbed in samādhi on Vāsudeva (v. 6), Brahmā's descent to the Gandhamādana valley (vv. 7-9), his words — 'this is amṛta; do not envy the immeasurable Lord; I, Bhava and these ṛṣis all carry the burden of his ordinance' (vv. 11-15), the reminder that the six senses are enemies to be conquered before the household can be enjoyed (vv. 17-18) and the command to enjoy what Puruṣottama allots and serve Prakṛti (v. 19), Priyavrata's acceptance and Brahmā's departure (vv. 20-21), Manu's retirement (v. 22), the ten sons and the daughter Ūrjasvatī (vv. 24-25), the three paramahaṃsa sons (vv. 26-27), the three future Manus (v. 28), the eleven arbuda years of enjoyment (v. 29), the seven circuits of the sun's path, the seven seas and the seven dvīpas each twice the last (vv. 30-32), Ūrjasvatī given to Uśanas and Devayānī's birth (v. 33), the power of the Lord's name (v. 34), Priyavrata's self-disgust — 'I have done what should not be done; a pet beast of this woman — fie on me' (vv. 35-36) — and his departure after dividing the kingdom (v. 37), with the closing verses in his praise (vv. 38-40). The page has no verse numbers at all (they are counted in sequence) and carries an interpolated tṛtiya-skandha citation inside verse 30; see known_source_defects.",
       "candidate_verse_range": "1-40",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 167,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 490,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 40,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.02",
       "canto": 5,
       "chapter": 2,
-      "title": "अग्निध्रको कथा",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Categorically expanded narrative draft; not verified verse by verse against a selected edition. Translation accuracy, interpretation, chapter mapping, and completeness remain subject to independent review.",
+      "title": "आग्नीध्रको तपस्या, अप्सरा पूर्वचित्तिसँग विवाह र नौ वर्षको विभाजन",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_२",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः २",
+        "pageid": 43088,
+        "revid": 313092,
+        "revision_timestamp": "2021-06-29T03:18:40Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-23",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "23 verses; speakers Śuka, Āgnīdhra and Pūrvacitti in dialogue. Confirmed: Āgnīdhra's rule of Jambūdvīpa (v. 1), his desire for a son and worship of the creator of the universe in the Mandara valley (v. 2), the Lord's sending of the Apsaras Pūrvacitti (v. 3), her wanderings in the grove (v. 4), the prince's half-opened eyes at the sound of her anklets (v. 5), his infatuation (v. 6) and his address — who are you, are you the māyā of the supreme goddess, whose are these two bows, why hunt in the forest, why do these ṛṣi-like disciples sing the Sāma, what is this strange union of bark-garment and braided hair, what is the ruddy mud that perfumes your āśrama (vv. 7-14), her flirtatious reply (v. 16), and their long enjoyment (v. 18), the nine sons named after the nine varṣas — Nābhi, Kiṃpuruṣa, Harivarṣa, Ilāvṛta, Ramyaka, Hiraṇmaya, Kuru, Bhadrāśva and Ketumāla (v. 19), her return to the Lord (v. 20), the sons' rule (v. 21), Āgnīdhra's attainment of her world (v. 22) and the nine brothers' marriages to the nine daughters of Meru (v. 23). Corrected during review: the draft gave the mountain as Mandarācala and called the chapter 'the story of Agnidhra' with a 'prasaṅga / mukhya ghaṭanākrama' template; the page names no mountain for the tapas and the chapter's bulk is the lovers' dialogue, which the draft reduced to one sentence. The page carries no verse markers; verses are counted in sequence.",
       "candidate_verse_range": "1-23",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 197,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 237,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 23,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.03",
       "canto": 5,
       "chapter": 3,
-      "title": "ऋषभदेवको मेरुदेवीको गर्भमा आविर्भाव",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Categorically expanded narrative draft; not verified verse by verse against a selected edition. Translation accuracy, interpretation, chapter mapping, and completeness remain subject to independent review.",
+      "title": "नाभिको यज्ञ र सुदर्शन भगवान्को आविर्भाव",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_३",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः ३",
+        "pageid": 45105,
+        "revid": 274589,
+        "revision_timestamp": "2020-09-24T03:17:36Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-18",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "18 verses; speakers Śuka, the ṛtviks, the Lord. Confirmed: Nābhi's sacrifice for a son, with Merudevī (v. 1), the Lord's appearance as the charming Sudarśana form at the well-ordered sacrifice (v. 2), the priests' welcome of the golden two-armed Person in dark-gold silk with Śrīvatsa, the vanamālā and the Kaustubha (v. 3), their hymn — that an īśa-less man cannot describe the Lord beyond his names and forms, except by recounting a fraction of his qualities (v. 4), their statement that simple offerings please him (v. 5) but have not won them the fruit they seek (vv. 6-8), the wish that the king's son be like the Lord himself (v. 9), and the closing verses on the devotees' indifference to the Lord's powers (v. 10). Corrected during review: the draft said the priests asked for 'a son like the Lord' and the Lord promised to be born as Nābhi's son; the reference frames it as the Lord's own statement that since none equal to him exists he will descend by a portion of his amśa into the Āgnīdhra line (vv. 15-17), and adds the disappearance before Merudevī (v. 18).",
       "candidate_verse_range": "1-18",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 191,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 328,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 18,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.04",
       "canto": 5,
       "chapter": 4,
-      "title": "ऋषभदेवका लक्षण",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Expanded summary draft; candidate Sanskrit passages consulted for narrative orientation only. Chapter mapping, edition, interpretation, translation, and completeness remain unverified.",
+      "title": "ऋषभदेवको जन्म, सय पुत्र र भारतवर्षको नामकरण",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_४",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः ४",
+        "pageid": 45101,
+        "revid": 274590,
+        "revision_timestamp": "2020-09-24T03:20:00Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-19",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "19 verses; speakers Śuka and the narrating sages. Confirmed: the people's desire for the newborn Rṣabha (v. 1), Nābhi's gift of the name on account of his greatness (v. 2), Indra's jealousy, his withholding of rain and the Lord's own yogamāyā rain in the land named Ajanābha (v. 3), Nābhi's joy and his address to the Lord as 'vatsa tāta' (v. 4), the consecration of Rṣabha, Nābhi's retirement to Viśālā and his worship of Nara-Nārāyaṇa, attaining the Lord's greatness (v. 5), the two verses in Nābhi's praise (vv. 6-7), Rṣabha's return from the guru-kula, his household dharma, and the hundred sons born of Jayantī (Indradattā) (v. 8), Bharata as the eldest after whom the land is called Bhārata (v. 9), the nine lords — Kuśāvarta, Ilāvarta, Brahmāvarta, Malaya, Ketu, Bhadrasena, Indraspṛk, Vidarbha and Kīkaṭa (v. 10), the nine great devotees — Kavi, Havir, Antarikṣa, Prabuddha, Pippalāyana, Āvirhotra, Drumila, Camasa and Karabhājana (vv. 11-12), the eighty-one younger sons (v. 13), the Lord's conduct as a teacher of dharma (vv. 14-16), his hundred sacrifices (v. 17), the land's freedom from want (v. 18) and his address in the assembly of Brahmāvarta (v. 19). Corrected during review: the draft said Indra gave his daughter Jayantī in marriage; the reference has Jayantī as the mother of the hundred sons, with Indra withholding rain out of jealousy, and the names of the nine lords and nine devotees had been dropped.",
       "candidate_verse_range": "1-19",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 154,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 318,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 19,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.05",
       "canto": 5,
       "chapter": 5,
-      "title": "ऋषभदेवको पुत्रहरूलाई उपदेश",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Expanded summary draft; candidate Sanskrit passages consulted for narrative orientation only. Chapter mapping, edition, interpretation, translation, and completeness remain unverified.",
+      "title": "ऋषभदेवको उपदेश, अवधूत-वेष र आत्मानन्द",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_५",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः ५",
+        "pageid": 21433,
+        "revid": 274591,
+        "revision_timestamp": "2020-09-24T03:20:57Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-35",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "35 verses; speaker Ṛṣabha. Confirmed: the address against wasting the human body on sense-pleasure (v. 1), great souls' service as the door of release and the company of the woman-attached as the door of darkness (v. 2), the absence of attachment in one whose friendship is with the Lord (v. 3), the body as a source of pain (v. 4), ignorance and karma as the cause of defeat (vv. 5-6), the mind bound by karma until love for Vāsudeva arises (v. 6), the household as heat for one who has lost remembrance (v. 7), the knot of the heart as the mutual pairing of man and woman, whence 'I' and 'mine' (v. 8), its loosening and the crossing beyond (v. 9), the means — bhakti, non-attachment, tolerance of duality, inquiry, tapas (vv. 10-13), the removal of the linga called 'I' (v. 13), the untying of the heart-knot (v. 14), the rule against leading the karma-mūḍha further into karma (vv. 15-18), the body with sattva as its heart and adharma on its back, whence the name Rṣabha (v. 19), the command to serve Bharata (v. 20), the hierarchy from plants to the twice-born (vv. 21-22), the supremacy of the brāhmaṇa who receives the offering (v. 23), the old body holding śama, dama, satya and tapas (v. 24), the devotee with nothing as dearer than the Lord (v. 25), and the worship of all beings as his dwelling (vv. 26-27); then the consecration of Bharata (v. 28), the mendicant life — naked, matted hair, silent before abuse (vv. 29-30), the defiled body among the townsfolk (v. 31), the vow of the python (v. 32), the fragrance of his excrement for ten yojanas (v. 33), the life of a cow, deer or crow (v. 34) and his indifference to the yogic powers (v. 35). Corrected during review: the draft summarized the teaching as general ethical advice with no verse anchors and gave none of the chapter's images — the python vow, the ten-yojana fragrance, the hierarchy of beings.",
       "candidate_verse_range": "1-35",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 153,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 568,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 35,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.06",
       "canto": 5,
       "chapter": 6,
-      "title": "ऋषभदेवका कार्यहरू",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Expanded summary draft; candidate Sanskrit passages consulted for narrative orientation only. Chapter mapping, edition, interpretation, translation, and completeness remain unverified.",
+      "title": "ऋषभदेवको देहत्याग र कलियुगको भविष्य-चित्र",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_५/अध्यायः_६",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः ५/अध्यायः ६",
+        "pageid": 19504,
+        "revid": 274592,
+        "revision_timestamp": "2020-09-24T03:22:00Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-19",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "19 verses; speakers Parīkṣit, Śuka and the sages' verses. Confirmed: the king's question whether the powers that come unsought can trouble one whose karma-seed is burnt (v. 1), the answer that the mind is not to be trusted, like a deceitful hunter (vv. 2-3), the warning that the mind makes an opening for desire and its allies, as a faithless wife does for her husband's enemies (v. 4), the list of evils rooted in the mind (v. 5), Rṣabha's withdrawal (v. 6), his wandering in the Koṅka, Veṅka and Kuṭaka lands, the stone in his mouth and his madness (v. 7), the forest fire that consumes the wood together with him (v. 8), the future Kali picture — the kings of Koṅka, Veṅka and Kuṭaka learning the name 'Arhat' from his conduct and turning the dharma of the age into a wrong path (v. 9), the people of Kali without bathing, ācamana or purity, reviling Brahmā, the brāhmaṇas and the sacrifice (v. 10), their fall into blind darkness (v. 11), the statement that this avatāra teaches kaivalya to those covered by rajas (v. 12), the verses of praise — the seven seas' encircled earth, the Priyavrata line, the Lord's conduct beyond yogamāyā (vv. 13-15) — the fruit of hearing it (v. 16), the devotees' indifference to liberation (v. 17) and the closing verse that the Lord grants mukti but not bhakti-yoga (vv. 18-19). Corrected during review: the title and summary treated the chapter as a general account of Rṣabha's deeds; the king's question, the warning about the mind and the Kali prophecy were missing.",
       "candidate_verse_range": "1-19",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 150,
-      "expansion_triage": "length_check_only"
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 393,
+      "expansion_triage": "length_check_only",
+      "review_stage": "source_checked",
+      "verse_count_in_reference": 19,
+      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "05.07",
@@ -8180,6 +8340,26 @@
       ],
       "editorial_issues_found": [
         "The earlier canto-3 pass had carried over pre-rebuild draft material: 3.5 placed the meeting at Haridvāra and invented a divine promise, 3.6 mis-assigned the presiding deities, and 3.9 ended on a command that belongs to a different sequence."
+      ]
+    },
+    "batch_7": {
+      "cantos": [
+        5
+      ],
+      "chapters": "5.1-5.6",
+      "reviewed_at": "2026-11-19",
+      "reviewer": "Arena agent (AI-assisted)",
+      "source_checked": 6,
+      "fixed_in_review": [
+        "05.1 rebuilt around Vidura's question, Brahmā's descent and the 'we all carry his ordinance' speech; the seven seas and seven dvīpas are kept, and the closing self-disgust and retirement restored.",
+        "05.2 rewritten from the chapter itself: the lovers' dialogue (vv. 7-16) replaces the summarised 'infatuation' sentence, the mountain is left unnamed as the page gives it, and the nine sons and nine Meru-daughters are listed.",
+        "05.3 corrected: the Lord appears as the four-armed Sudarśana form and the priests' request is answered by the Lord's own statement that he will descend by a portion of his amśa.",
+        "05.4 retitled and rebuilt around the hundred sons, the nine lords and the nine great devotees, and the naming of Bhārata after Bharata.",
+        "05.5 rebuilt with verse anchors for the whole address, including the python vow, the ten-yojana fragrance and the hierarchy of beings.",
+        "05.6 rebuilt around Parīkṣit's question, the warning about the mind, the Koṅka-Veṅka-Kuṭaka episode and the Kali prophecy."
+      ],
+      "editorial_issues_found": [
+        "Canto 5's Wikisource pages carry no verse markers; the verse numbering used in the summaries is the page's own prose numbering and is recorded as a source defect."
       ]
     }
   }
