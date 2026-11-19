@@ -2,7 +2,7 @@
 'use strict';
 
 const CACHE_PREFIX = 'bhagavata-study-';
-const CACHE_NAME = `${CACHE_PREFIX}v2`;
+const CACHE_NAME = `${CACHE_PREFIX}v15`;
 const APP_SHELL = [
   './',
   './index.html',
@@ -12,7 +12,7 @@ const APP_SHELL = [
   './assets/icons/icon-192.png',
   './assets/icons/icon-512.png',
   './assets/icons/maskable-512.png',
-  ...Array.from({ length: 12 }, (_, i) => `./data/canto-${String(i + 1).padStart(2, '0')}.js`)
+  ...Array.from({ length: 12 }, (_, i) => `./data/canto-${String(i + 1).padStart(2, '0')}.js`),
 ];
 
 self.addEventListener('install', (event) => {
