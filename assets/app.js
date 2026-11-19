@@ -4,18 +4,18 @@
 
   // ---- १२ स्कन्धको आधारभूत सूची (विस्तृत सामग्री data/canto-XX.js बाट आउँछ) ----
   const CANTO_META = [
-    { id: 1,  name: 'प्रथम स्कन्ध',   roman: 'Prathama Skandha',  tagline: 'नैमिषारण्यका प्रश्न, भागवत-माहात्म्य र परीक्षित्लाई शाप',            chapters: 19, color: '#7c2d12' },
-    { id: 2,  name: 'द्धितीय स्कन्ध',  roman: 'Dvitīya Skandha',   tagline: 'विराट्-स्वरूप ध्यान, सृष्टि-विधान र भागवतका दश लक्षण',             chapters: 10, color: '#9a4a1a' },
-    { id: 3,  name: 'तृतीय स्कन्ध',   roman: 'Tṛtīya Skandha',    tagline: 'विदुर–मैत्रेय संवाद, वराह-लीला र कपिलको साङ्ख्योपदेश',             chapters: 33, color: '#b07d1e' },
-    { id: 4,  name: 'चतुर्थ स्कन्ध',  roman: 'Caturtha Skandha',  tagline: 'दक्ष-यज्ञ, ध्रुव, पृथु, प्रचेताः र पुरञ्जनोपाख्यान',                chapters: 31, color: '#53772f' },
-    { id: 5,  name: 'पञ्चम स्कन्ध',   roman: 'Pañcama Skandha',   tagline: 'ऋषभदेव–भरत चरित्र र ब्रह्माण्डको भूगोल (भुवन-कोश)',               chapters: 26, color: '#2f6f5f' },
-    { id: 6,  name: 'षष्ठ स्कन्ध',    roman: 'Ṣaṣṭha Skandha',    tagline: 'अजामिलोपाख्यान, वृत्तासुर-वध र चित्रकेतु-कथा',                   chapters: 19, color: '#21618c' },
-    { id: 7,  name: 'सप्तम स्कन्ध',   roman: 'Saptama Skandha',   tagline: 'प्रह्लाद-चरित्र, नृसिंह-अवतार र वर्णाश्रम-धर्म',                  chapters: 15, color: '#3a4fa0' },
-    { id: 8,  name: 'अष्टम स्कन्ध',   roman: 'Aṣṭama Skandha',    tagline: 'गजेन्द्र-मोक्ष, समुद्र-मन्थन र वामन-अवतार',                      chapters: 24, color: '#6d3aa0' },
-    { id: 9,  name: 'नवम स्कन्ध',    roman: 'Navama Skandha',    tagline: 'सूर्य-र चन्द्र-वंशका राजाहरूको चरित्र',                          chapters: 24, color: '#a03472' },
-    { id: 10, name: 'दशम स्कन्ध',    roman: 'Daśama Skandha',    tagline: 'श्रीकृष्ण-लीला — भागवतको हृदय (९० अध्याय)',                       chapters: 90, color: '#8a1f2d' },
-    { id: 11, name: 'एकादश स्कन्ध',  roman: 'Ekādaśa Skandha',  tagline: 'उद्धवगीता, यदु-वंशको स्वधाम-गमन',                             chapters: 31, color: '#1f6e6e' },
-    { id: 12, name: 'द्वादश स्कन्ध', roman: 'Dvādaśa Skandha',  tagline: 'कलियुगका लक्षण, परीक्षित्-मोक्ष र भागवत-फलश्रुति',                chapters: 13, color: '#7a5a20' }
+    { id: 1,  name: 'प्रथम स्कन्ध',   roman: 'Prathama Skandha',  tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',            chapters: 19, color: '#7c2d12' },
+    { id: 2,  name: 'द्धितीय स्कन्ध',  roman: 'Dvitīya Skandha',   tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',             chapters: 10, color: '#9a4a1a' },
+    { id: 3,  name: 'तृतीय स्कन्ध',   roman: 'Tṛtīya Skandha',    tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',             chapters: 33, color: '#b07d1e' },
+    { id: 4,  name: 'चतुर्थ स्कन्ध',  roman: 'Caturtha Skandha',  tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                chapters: 31, color: '#53772f' },
+    { id: 5,  name: 'पञ्चम स्कन्ध',   roman: 'Pañcama Skandha',   tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',               chapters: 26, color: '#2f6f5f' },
+    { id: 6,  name: 'षष्ठ स्कन्ध',    roman: 'Ṣaṣṭha Skandha',    tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                   chapters: 19, color: '#21618c' },
+    { id: 7,  name: 'सप्तम स्कन्ध',   roman: 'Saptama Skandha',   tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                  chapters: 15, color: '#3a4fa0' },
+    { id: 8,  name: 'अष्टम स्कन्ध',   roman: 'Aṣṭama Skandha',    tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                      chapters: 24, color: '#6d3aa0' },
+    { id: 9,  name: 'नवम स्कन्ध',    roman: 'Navama Skandha',    tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                          chapters: 24, color: '#a03472' },
+    { id: 10, name: 'दशम स्कन्ध',    roman: 'Daśama Skandha',    tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                       chapters: 90, color: '#8a1f2d' },
+    { id: 11, name: 'एकादश स्कन्ध',  roman: 'Ekādaśa Skandha',  tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                             chapters: 31, color: '#1f6e6e' },
+    { id: 12, name: 'द्वादश स्कन्ध', roman: 'Dvādaśa Skandha',  tagline: 'प्रारम्भिक नेपाली मस्यौदा तयार',                chapters: 13, color: '#7a5a20' }
   ];
 
   const CONTENT = window.BHAGAVATA_CONTENT || {};
@@ -114,15 +114,18 @@
   function viewHome() {
     let done = 0, total = 0;
     CANTO_META.forEach((c) => { total += c.chapters; done += Math.min(readStore.count(c.id), c.chapters); });
-    const loaded = CANTO_META.filter((c) => CONTENT[c.id] && CONTENT[c.id].chapters && CONTENT[c.id].chapters.length).length;
+    const loaded = CANTO_META.reduce((sum, c) => {
+      const chapters = CONTENT[c.id] && CONTENT[c.id].chapters || [];
+      return sum + chapters.filter((ch) => ch.summary && ch.summary.trim()).length;
+    }, 0);
 
     let html = '<section class="hero">';
     html += '<h1>श्रीमद्भागवत महापुराण</h1>';
-    html += '<p>वेदव्यासद्वारा विरचित, शुकदेव गोस्वामीद्वारा राजा परीक्षित्लाई सुनाइएको पुराण-रत्न — बाह्र स्कन्धका विषयगत विभाजन र प्रत्येक अध्यायको विस्तृत नेपाली सारांशसहित। गहिरो अध्ययनका लागि तयार भएको यो ग्रन्थालयमा तपाईंलाई स्वागत छ।</p>';
+    html += '<p>वेदव्यासद्वारा विरचित, शुकदेव गोस्वामीद्वारा राजा परीक्षित्लाई सुनाइएको पुराण-रत्न। बाह्रै स्कन्धका नेपाली परिचय र ३३५ अध्यायका सारांश तथा मुख्य-विन्दु प्रारम्भिक मस्यौदा हुन्; स्रोतसँग अध्याय-दर-अध्याय समीक्षा बाँकी छ।</p>';
     html += '<div class="hero-stats">' +
       '<div class="hero-stat"><b>' + ne(12) + '</b><span>स्कन्ध (भाग)</span></div>' +
       '<div class="hero-stat"><b>' + ne(335) + '</b><span>अध्याय</span></div>' +
-      '<div class="hero-stat"><b>' + ne(loaded) + '</b><span>स्कन्ध सारांश सज्जित</span></div>' +
+      '<div class="hero-stat"><b>' + ne(loaded) + '</b><span>नयाँ सारांश लेखिएका अध्याय</span></div>' +
       '<div class="hero-stat"><b>' + ne(done) + '</b><span>तपाईंले पढिसक्नुभएका</span></div>' +
       '</div></section>';
 
@@ -136,8 +139,9 @@
       html += '<span class="cc-num">' + ne(c.id) + '</span>';
       html += '<h3>' + c.name + '</h3>';
       html += '<span class="cc-tag">' + c.tagline + '</span>';
+      const started = ready ? ct.chapters.filter((ch) => ch.summary && ch.summary.trim()).length : 0;
       html += '<div class="cc-meta"><span>' + ne(c.chapters) + ' अध्याय</span>' +
-        (ready ? '<span class="cc-badge ready">उपलब्ध ✓</span>' : '<span class="cc-badge soon">चाँडै आउँदै</span>') + '</div>';
+        (started ? '<span class="cc-badge ready">' + ne(started) + ' प्रारम्भिक मस्यौदा</span>' : '<span class="cc-badge soon">पुनर्लेखन बाँकी</span>') + '</div>';
       if (ready && pct > 0) html += '<div class="cc-progress"><i style="width:' + pct + '%"></i></div>';
       html += '</a>';
     });
@@ -174,17 +178,18 @@
       return;
     }
 
-    if (ct.intro) html += '<div class="canto-intro">' + ct.intro + '</div>';
+    html += '<div class="canto-intro">' + (ct.intro ? esc(ct.intro) : 'यस स्कन्धको परिचय पुनर्लेखनका लागि बाँकी छ।') + '</div>';
 
     ct.themes.forEach((t) => {
       html += '<div class="theme-block" id="theme-' + t.id + '">';
       html += '<div class="theme-head"><span class="theme-dot"></span><h3>' + esc(t.title) + '</h3><span class="theme-range">अध्याय ' + ne(t.from) + '–' + ne(t.to) + '</span></div>';
       html += '<ul class="chapter-list">';
       ct.chapters.filter((ch) => ch.n >= t.from && ch.n <= t.to).forEach((ch) => {
-        const teaser = ch.summary.split('\n')[0];
+        const hasSummary = ch.summary && ch.summary.trim();
+        const teaser = hasSummary ? ch.summary.split('\n')[0] : 'सारांश पुनर्लेखनका लागि बाँकी छ';
         html += '<li><a class="chapter-row" href="#/canto/' + c.id + '/chapter/' + ch.n + '">' +
           '<span class="cr-no">' + ne(ch.n) + '</span>' +
-          '<span class="cr-body"><span class="cr-title">' + esc(ch.title) + '</span><span class="cr-teaser">' + esc(teaser.slice(0, 120)) + '…</span></span>' +
+          '<span class="cr-body"><span class="cr-title">' + esc(ch.title) + '</span><span class="cr-teaser">' + esc(teaser.slice(0, 120)) + (hasSummary ? '…' : '') + '</span></span>' +
           (readStore.isRead(c.id, ch.n) ? '<span class="cr-check">✓</span>' : '') + '</a></li>';
       });
       html += '</ul></div>';
@@ -217,7 +222,14 @@
     }
 
     html += '<h2>विस्तृत सारांश</h2>';
-    ch.summary.split(/\n\n+/).forEach((p) => { html += '<p>' + esc(p.trim()) + '</p>'; });
+    if (ch.summary && ch.summary.trim()) {
+      html += '<p class="reader-note">यो नेपाली सारांश प्रारम्भिक मस्यौदा हो; मूलपाठसँग अध्याय-दर-अध्याय समीक्षा बाँकी छ।</p>';
+      ch.summary.split(/\n\n+/).forEach((p) => {
+        if (p.trim()) html += '<p>' + esc(p.trim()) + '</p>';
+      });
+    } else {
+      html += '<p class="empty">यस अध्यायको सारांश पुनर्लेखनका लागि बाँकी छ।</p>';
+    }
 
     if (ch.points && ch.points.length) {
       html += '<h2>मुख्य विषयहरू</h2><ul class="points">';
