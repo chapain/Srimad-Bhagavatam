@@ -102,9 +102,18 @@ go('#/canto/1/chapter/1');
   ok(link && /sa\.wikisource\.org/.test(link.getAttribute('href') || ''),
     'जाँचिएको अध्यायमा सन्दर्भ-संस्करणको लिङ्क हुन्छ');
 }
-go('#/canto/1/chapter/7');
-ok(main.querySelector('.reader-note')?.textContent.includes('प्रारम्भिक मस्यौदा'),
-  'बाँकी अध्याय अझै मस्यौदा देखिन्छ');
+{
+  // pick a chapter that the manifest still calls a draft, so this assertion
+  // stays true as review batches promote chapters
+  const manifest = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'docs', 'content-review-manifest.json'), 'utf8'));
+  const draft = manifest.chapters.find((r) => r.summary_status === 'draft_unverified');
+  ok(!!draft, 'कम्तीमा एउटा अध्याय अझै मस्यौदा छ');
+  if (draft) {
+    go('#/canto/' + draft.canto + '/chapter/' + draft.chapter);
+    ok(main.querySelector('.reader-note')?.textContent.includes('प्रारम्भिक मस्यौदा'),
+      'बाँकी अध्याय अझै मस्यौदा देखिन्छ (' + draft.id + ')');
+  }
+}
 go('#/search?q=' + encodeURIComponent('नैमिषारण्य'));
 ok(main.querySelectorAll('.search-result').length >= 1, 'खोज्दा अध्याय १ को नयाँ सारांश भेटिन्छ');
 

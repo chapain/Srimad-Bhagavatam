@@ -11,7 +11,7 @@
       "mirror_note": "Per-chapter verse ranges came from the SanskritDocuments ITX metadata mirror. Selected candidate Sanskrit passages from Canto 1 chapters 1–19, Canto 2 chapters 1–10, Canto 3 chapters 1–33, Canto 4 chapters 8–24, and Canto 12 chapters 1–13 were consulted as narrative orientation during draft work; these were not full or verse-by-verse reviews. No new verse text was imported into the product by these draft expansions. The mirror has no declared license, and the exact edition remains unconfirmed. Selected candidate Sanskrit passages from Canto 5 chapters 1–26 were also consulted as narrative orientation; these were not full or verse-by-verse reviews. Chapter mappings and edition remain unverified. Canto 10 summaries also used a provisional Sanskrit verse dataset for narrative orientation; the dataset edition and chapter mapping were not independently verified, and no verse-by-verse review was performed."
     },
     "secondary_sources": "Public-domain Dutt OCR may assist narrative orientation only; never treat OCR as verified source text.",
-    "verified_chapters": 6,
+    "verified_chapters": 12,
     "editorially_approved_chapters": 0,
     "word_count_method": "Whitespace-delimited tokens; used for triage only.",
     "provisional_text_examined_chapters": [
@@ -176,6 +176,10 @@
         {
           "chapter": "04.21",
           "issue": "Verse 45 is absent from the page; markers run 1-44 then 46-53, and the colophon of chapter 21 follows. The chapter therefore has 52 transcribed verses where the standard count is 53."
+        },
+        {
+          "chapter": "01.11",
+          "issue": "The page marks 39 verses and carries no marker for verse 10 (earlier candidates give 40). Verse text is continuous and the summary check is unaffected; the count is recorded as 39."
         }
       ]
     },
@@ -418,108 +422,229 @@
       "canto": 1,
       "chapter": 7,
       "title": "व्यासको समाधि, भागवत-रचना र अश्वत्थामाको दण्ड",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_७",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ७",
+        "pageid": 7996,
+        "revid": 110178,
+        "revision_timestamp": "2017-06-04T22:16:02Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-58",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "58 verses; speakers Śaunaka, Sūta, Arjuna, Kṛṣṇa. Confirmed in order: Vyāsa's meditation at Śamyāprāsa on the western bank of the Sarasvatī (vv. 2-4), the vision of the Lord and his māyā, the composing of the Sātvata-saṃhitā (vv. 5-7), teaching Śuka (v. 8), Śaunaka's question about the self-satisfied Śuka (v. 9), the Aśvatthāmā episode from the killing of the five sleeping sons (v. 14) through the brahmāstra and its counter (vv. 19-32), the binding (v. 33), Kṛṣṇa's ruling (vv. 34-39), Draupadī's plea (vv. 43-48), Bhīma's demand for death (v. 51), and the removal of the jewel and the tonsure as the brāhmaṇa-bandhu punishment (vv. 55-57). The quoted verse 1.7.6 is verbatim and referenced correctly. One interpretive point: the summary has Draupadī plead for Aśvatthāmā for the sake of his mother Kṛpī (v. 45), which the text supports.",
       "candidate_verse_range": "1-58",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 182,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 58,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.08",
       "canto": 1,
       "chapter": 8,
       "title": "उत्तराका गर्भको रक्षा र कुन्ती-स्तुति",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_८",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ८",
+        "pageid": 7997,
+        "revid": 196197,
+        "revision_timestamp": "2019-03-10T04:06:06Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-52",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "52 verses; speakers Sūta, Uttara, Kuntī, Yudhiṣṭhira. Confirmed: the water-offering at the Gaṅgā (vv. 1-2), Kṛṣṇa consoling the mourners on time's course (vv. 3-4), restoration of Yudhiṣṭhira's kingdom and the three aśvamedhas (vv. 5-6), the departure and Uttara's plea (vv. 8-10), the Sudarśana and yogamāyā protection of the embryo (vv. 11-14), and Kuntī's stuti in full (vv. 18-43), including the list of calamities in v. 24. Adjusted during review: v. 24 says protection from being seen by the man-eater, so the wording was changed from 'नरभक्षकको आक्रमण' to 'नरभक्षकबाट'. The quoted verse 1.8.18 is verbatim and referenced correctly.",
       "candidate_verse_range": "1-52",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 176,
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 175,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 52,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.09",
       "canto": 1,
       "chapter": 9,
       "title": "भीष्मको शरशय्या, उपदेश र देहत्याग",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_९",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ९",
+        "pageid": 7998,
+        "revid": 330834,
+        "revision_timestamp": "2022-02-06T04:00:20Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-49",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "49 verses; speakers Sūta, Bhīṣma, Yudhiṣṭhira. Confirmed: Yudhiṣṭhira's fear of prajā-droha and his journey to Bhīṣma at Kurukṣetra (v. 1), the assembled ṛṣis and devas (vv. 5-8), Kṛṣṇa present (v. 10), Bhīṣma's instruction on daiva and on not grieving (vv. 12-17), the identification of Kṛṣṇa as Nārāyaṇa (vv. 18-21), Yudhiṣṭhira's questions on dharma in vv. 25-28, the uttarāyaṇa moment and the withdrawal of speech and mind (vv. 29-31), the stuti (vv. 32-42), and the release of the body (vv. 43-45). Completeness note: the text states in one verse (v. 27) the topics Bhīṣma covered (dāna, rāja-dharma, mokṣa-dharma, strī-dharma, bhagavad-dharma); the summary's fuller list follows that verse. This chapter has no Sanskrit verse block in the app.",
       "candidate_verse_range": "1-49",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 153,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 49,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.10",
       "canto": 1,
       "chapter": 10,
       "title": "कृष्णको हस्तिनापुरबाट द्वारका-प्रस्थान",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_१०",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः १०",
+        "pageid": 7999,
+        "revid": 110181,
+        "revision_timestamp": "2017-06-04T22:17:09Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-36",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "36 verses; speakers Śaunaka, Sūta. Confirmed: Yudhiṣṭhira's rule and the abundance of the realm (vv. 3-6), Kṛṣṇa's stay of some months at Hastināpura and his request to leave (v. 7), the grief of Subhadrā, Draupadī, Kuntī, Gāndhārī and others (vv. 9-14), the departure honours, the white umbrella held by Arjuna and the fans of Uddhava and Sātyaki (vv. 15-18), the women's praises on the rooftops (vv. 19-30), Yudhiṣṭhira's protective army (v. 32), and the route through Kuru-jāṅgala, Pāñcāla, Śūrasena, Brahmāvarta, Kurukṣetra, Matsya, Sārasvata, Marudhanva, Sauvīra, Ābhīra, and Ānarta (vv. 34-35). This chapter has no Sanskrit verse block in the app.",
       "candidate_verse_range": "1-36",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 154,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 36,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.11",
       "canto": 1,
       "chapter": 11,
       "title": "कृष्णको द्वारका-प्रवेश र नगर-उत्सव",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_११",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ११",
+        "pageid": 8000,
+        "revid": 110182,
+        "revision_timestamp": "2017-06-04T22:17:33Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference",
+        "verse_count_caveat": "Page marks 39 verses and has no marker for verse 10; earlier candidates give 40. Count discrepancy recorded, content check unaffected."
+      },
+      "verse_range": "1-39",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "Verse count in the reference: the pinned Wikisource page closes with 39 marked verses and has no marker for verse 10. The earlier candidate dataset and GRETIL both give 40 for this chapter. Recorded as verse_range 1-39 with the discrepancy noted; the summary content was checked against the continuous text and is unaffected. Confirmed content: the conch sounding that ends the citizens' sorrow (v. 1), their praises with Kṛṣṇa as mother, father, guru and Lord (vv. 6-10), the decorated city (vv. 12-16), the welcome by Vasudeva, Ugrasena, Balarāma, Pradyumna and Sāmba (vv. 16-20), mutual honours (vv. 21-23), the women on the palaces (vv. 24-26), the entry to his parents and the queens (vv. 28-33), and the closing statement that the Lord, though unattached, appears attached (vv. 37-39). The verse block in the app repeats the first verse, so no verse content is displayed or claimed for this chapter.",
       "candidate_verse_range": "1-40",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 153,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 39,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.12",
       "canto": 1,
       "chapter": 12,
       "title": "परीक्षित्को जन्म",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_१२",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः १२",
+        "pageid": 8001,
+        "revid": 110183,
+        "revision_timestamp": "2017-06-04T22:17:55Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-36",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "36 verses; speakers Śaunaka, Sūta, Yudhiṣṭhira, the brāhmaṇas. Confirmed: Śaunaka's question (vv. 1-3), Yudhiṣṭhira's rule (v. 4), the embryo's vision of the four-armed Lord who whirls his mace and dissipates the weapon's heat (vv. 7-11), the birth (v. 12), the jātakarma by Dhāumya and Kṛpa (v. 13), the gifts (v. 14), the brāhmaṇas naming him Viṣṇurāta and forecasting his virtues and his hearing of Bhāgavata from Śuka (vv. 15-28), and the explanation of the name Parīkṣit (v. 30). Corrected during review: the draft said the brothers fetched gold left from King Marutta's sacrifice, but verse 33 says only that the brothers, prompted by Kṛṣṇa, brought abundant wealth from the northern direction. The Marutta detail is a later gloss and was removed; a closing sentence on vv. 4 and 31 was added.",
       "candidate_verse_range": "1-36",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 153,
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 174,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 36,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.13",
@@ -6104,6 +6229,23 @@
       "editorial_issues_found": [
         "The app shows a Sanskrit verse block for only 39 of 335 chapters (296 chapters have none), so verse blocks are a per-chapter feature, not a verification backbone.",
         "Only 17 of the existing verse blocks could be matched against the earlier provisional dataset; the reviewed blocks in 1.1-1.3 and 1.5 were checked directly against the accepted reference instead."
+      ]
+    },
+    "batch_2": {
+      "cantos": [
+        1
+      ],
+      "chapters": "1.7-1.12",
+      "reviewed_at": "2026-11-19",
+      "reviewer": "Arena agent (AI-assisted)",
+      "source_checked": 6,
+      "fixed_in_review": [
+        "01.12 removed the unsupported Marutta's-sacrifice detail (v. 33 says only 'wealth from the northern direction')",
+        "01.08 wording of v. 24 changed from 'attack by the man-eater' to 'from the man-eater'",
+        "01.12 added a closing sentence covering vv. 4 and 31"
+      ],
+      "editorial_issues_found": [
+        "01.11 verse count differs between the accepted reference (39) and the earlier candidates (40); recorded as a source defect."
       ]
     }
   }
