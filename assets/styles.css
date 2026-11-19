@@ -236,6 +236,8 @@ body.fs-xl { --fs: 1.32rem; --reading-unit: 1.2453rem; }
 .reader h2 { font-family: 'Noto Serif Devanagari', serif; color: var(--maroon); font-size: calc(1.2 * var(--reading-unit)); margin: 24px 0 8px; }
 .reader p { margin: 0 0 16px; text-align: justify; overflow-wrap: break-word; }
 .reader p.reader-note { padding: 10px 12px; border-left: 3px solid var(--gold); background: #fbf5e8; color: var(--ink-soft); font-size: .9em; text-align: left; }
+.reader p.reader-note.checked { border-left-color: var(--ok, #2f6f4f); background: #eef6f0; }
+.reader p.reader-note a { color: inherit; text-decoration: underline; }
 .points { margin: 4px 0 16px; padding-left: 4px; list-style: none; }
 .points li { position: relative; padding-left: 26px; margin-bottom: 8px; }
 .points li::before { content: "❖"; position: absolute; left: 0; top: 0; color: var(--gold); }

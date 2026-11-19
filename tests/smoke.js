@@ -92,7 +92,19 @@ go('#/canto/11/chapter/1');
 ok(main.textContent.includes('साम्ब') && main.textContent.includes('मुसल'), 'एकादश स्कन्धको नयाँ सारांश देखिन्छ');
 go('#/canto/12/chapter/1');
 ok(main.textContent.includes('कलियुग') && main.textContent.includes('राजवंश'), 'द्वादश स्कन्धको नयाँ सारांश देखिन्छ');
-ok(main.querySelector('.reader-note')?.textContent.includes('प्रारम्भिक मस्यौदा'), 'अध्यायमा अप्रमाणित मस्यौदा स्थिति स्पष्ट देखिन्छ');
+ok(main.querySelector('.reader-note')?.textContent.includes('प्रारम्भिक मस्यौदा'), 'समीक्षा नभएको अध्यायमा मस्यौदा स्थिति स्पष्ट देखिन्छ');
+go('#/canto/1/chapter/1');
+{
+  const note = main.querySelector('.reader-note');
+  ok(note?.classList.contains('checked') && note.textContent.includes('जाँचिएको') && !note.textContent.includes('प्रारम्भिक मस्यौदा हो'),
+    'स्रोत-जाँचिएको अध्यायमा जाँच-स्थिति देखिन्छ, मस्यौदा लेबल देखिँदैन');
+  const link = note?.querySelector('a');
+  ok(link && /sa\.wikisource\.org/.test(link.getAttribute('href') || ''),
+    'जाँचिएको अध्यायमा सन्दर्भ-संस्करणको लिङ्क हुन्छ');
+}
+go('#/canto/1/chapter/7');
+ok(main.querySelector('.reader-note')?.textContent.includes('प्रारम्भिक मस्यौदा'),
+  'बाँकी अध्याय अझै मस्यौदा देखिन्छ');
 go('#/search?q=' + encodeURIComponent('नैमिषारण्य'));
 ok(main.querySelectorAll('.search-result').length >= 1, 'खोज्दा अध्याय १ को नयाँ सारांश भेटिन्छ');
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "project_status": "draft_complete_review_pending",
+  "project_status": "draft_complete_review_in_progress",
   "source_policy": {
     "primary_source": {
       "name": "Bhagavata Purana Sanskrit ITX (SanskritDocuments), candidate reference",
@@ -11,7 +11,7 @@
       "mirror_note": "Per-chapter verse ranges came from the SanskritDocuments ITX metadata mirror. Selected candidate Sanskrit passages from Canto 1 chapters 1–19, Canto 2 chapters 1–10, Canto 3 chapters 1–33, Canto 4 chapters 8–24, and Canto 12 chapters 1–13 were consulted as narrative orientation during draft work; these were not full or verse-by-verse reviews. No new verse text was imported into the product by these draft expansions. The mirror has no declared license, and the exact edition remains unconfirmed. Selected candidate Sanskrit passages from Canto 5 chapters 1–26 were also consulted as narrative orientation; these were not full or verse-by-verse reviews. Chapter mappings and edition remain unverified. Canto 10 summaries also used a provisional Sanskrit verse dataset for narrative orientation; the dataset edition and chapter mapping were not independently verified, and no verse-by-verse review was performed."
     },
     "secondary_sources": "Public-domain Dutt OCR may assist narrative orientation only; never treat OCR as verified source text.",
-    "verified_chapters": 0,
+    "verified_chapters": 6,
     "editorially_approved_chapters": 0,
     "word_count_method": "Whitespace-delimited tokens; used for triage only.",
     "provisional_text_examined_chapters": [
@@ -133,6 +133,55 @@
       "05.24",
       "05.25",
       "05.26"
+    ],
+    "review_method": {
+      "approach": "Chapter-by-chapter comparison of each Nepali summary against the accepted reference text before only. Summaries are original Nepali prose; no source text and no copyrighted translation is copied into the app.",
+      "stages": [
+        "draft_unverified - drafted, not checked against the accepted reference",
+        "source_checked - chapter mapping, verse range, sequence and narrative completeness checked against the pinned Wikisource revision, and the Nepali language pass completed",
+        "editorially_approved - a second, independent editorial sign-off"
+      ],
+      "promotion_rule": "A chapter is promoted individually, only when its own review record is complete. statuses are never bulk-promoted.",
+      "not_verified": "source_checked means the summary agrees with the reference text at chapter level. It is not a verse-by-verse translation check, not a Sanskrit edition criticism, and not an endorsement of interpretive detail."
+    },
+    "accepted_reference": {
+      "name": "श्रीमद्भागवतपुराणम् — Sanskrit Wikisource digital edition",
+      "publisher": "Wikimedia Foundation (Wikisource, Sanskrit domain)",
+      "url_pattern": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_<canto>/अध्यायः_<chapter>",
+      "raw_url_pattern": "https://sa.wikisource.org/w/index.php?title=...&action=raw",
+      "license": "CC BY-SA 4.0 (site-wide Wikisource licence); the underlying Sanskrit text of the Bhāgavata Purāṇa is public domain",
+      "pin_method": "Each reviewed chapter records the page id and revision id from the MediaWiki API (prop=revisions&rvprop=ids|timestamp), so the exact text read can be restored.",
+      "why_this_source": [
+        "It is the only complete, openly licensed, externally hosted Sanskrit text reachable from this environment.",
+        "It carries per-chapter pages numbered exactly as the app's 335-chapter structure, so chapter mapping can be checked directly rather than inferred.",
+        "It is independently maintained and corrects known defects in the earlier candidate ITX dataset (see known_source_defects)."
+      ],
+      "limitations": [
+        "It is a volunteer transcription, not a critical edition; it does not record manuscript variants.",
+        "Individual pages occasionally omit or concatenate a verse number (for example 4.21 has no verse 45), so a missing marker is recorded as a source defect rather than treated as a content error.",
+        "Some pages add a पाठभेद note for a variant reading.",
+        "It is a Sanskrit text only. There is no authorized Nepali translation in use; Nepali wording is the app's own drafting, checked for language quality but not attributable to a translator."
+      ],
+      "copyrighted_material": "No copyrighted translation or purport (for example Bhaktivedanta Swami or Gita Press material) is used for verification or imported into the app."
+    },
+    "rejected_or_limited_sources": {
+      "SanskritDocuments ITX (bhagpur.itx)": "Rejected as the verification authority. Its own header states the file is not to be copied or reposted without permission, which makes it unsuitable as a redistribution basis, and it is a volunteer file with no edition statement.",
+      "Sahib45-here ITX-derived CSV dataset": "Not used for verification. It is a re-parse of the same ITX, declares no licence, and so cannot independently corroborate it. It was used earlier only for draft orientation.",
+      "GRETIL sa_bhAgavatapurANa.txt": "Rejected as authority after examination. It is a valuable academic corpus but this file has mis-numbered chapter boundaries: chapter 3.31 is truncated at verse 21 and the remainder is renumbered as 3.32 (which then runs 1-48 while 3.32 should have 43), and 4.21 is renumbered 1-52 instead of 1-53. Verse-count comparison against the accepted reference differs in 13 chapters.",
+      "Manmatha Nath Dutt public-domain English translation (Internet Archive OCR)": "Not usable here: archive.org is unreachable from this environment, the OCR is acknowledged as defective, and the translation gives no verse numbers. Retained only as a historical drafting aid."
+    },
+    "known_source_defects": {
+      "description": "Verse-boundary defects observed in the accepted reference while reviewing. They are recorded so a later reviewer does not mistake them for summary errors.",
+      "entries": [
+        {
+          "chapter": "04.21",
+          "issue": "Verse 45 is absent from the page; markers run 1-44 then 46-53, and the colophon of chapter 21 follows. The chapter therefore has 52 transcribed verses where the standard count is 53."
+        }
+      ]
+    },
+    "review_tooling": [
+      "tools/ws-review.js - emits the raw-wikitext and revision-pin URLs for a chapter, measures a saved snapshot's verse range, and audits manifest consistency",
+      "tools/name-consistency.js - flags near-duplicate Devanagari spellings of the same proper noun across chapters"
     ]
   },
   "chapters": [
@@ -141,108 +190,228 @@
       "canto": 1,
       "chapter": 1,
       "title": "शौनकादि मुनिहरूका प्रश्न",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_१",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः १",
+        "pageid": 7990,
+        "revid": 110172,
+        "revision_timestamp": "2017-06-04T22:13:15Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-23",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "Checked against the pinned page. 23 verses; speakers are the sages of Naimiṣāraṇya then Sūta. The summary's movements follow the text in order: the framing questions (vv. 1-5), the maṅgala verses (vv. 1-2), the 'fruit of the Vedic tree' image (v. 3), the question of what is the essence worth hearing in Kali (vv. 10-11), and the closing question about where dharma went after Kṛṣṇa's departure (v. 23). All named topics present.",
       "candidate_verse_range": "1-23",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 182,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 23,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.02",
       "canto": 1,
       "chapter": 2,
       "title": "भगवद्भक्ति नै परम धर्म",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_२",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः २",
+        "pageid": 7991,
+        "revid": 110173,
+        "revision_timestamp": "2017-06-04T22:13:57Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-34",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "34 verses; speakers Vyāsa then Sūta. Fixed during review: the draft stopped at verse 22 and omitted verses 24-27, the guṇa-ladder passage (tamas, rajas, sattva; graded worship; the pure-sattva worshippers). A sentence summarising it was added, and the word count rose from 168 to 195. The referenced verse 1.2.11 is quoted correctly.",
       "candidate_verse_range": "1-34",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
-      "word_count": 168,
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
+      "word_count": 195,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 34,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.03",
       "canto": 1,
       "chapter": 3,
       "title": "पुरुषावतार र अवतारहरूको फेहरिस्त",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_३",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ३",
+        "pageid": 7992,
+        "revid": 369178,
+        "revision_timestamp": "2023-03-15T23:27:41Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-45",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "45 verses. Each avatāra named in the summary was checked one by one against verses 6-25 and the list is complete and in the same order. Verse 28 ('ete cāṃśakalāḥ ... kṛṣṇaḥ tu bhagavān svayam') is quoted correctly as 1.3.28 and the Sanskrit block matches verbatim. Language fix: 'अवतरित भई' replaced with the Nepali form 'अवतरित भएर'.",
       "candidate_verse_range": "1-45",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 176,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 45,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.04",
       "canto": 1,
       "chapter": 4,
       "title": "वेदव्यासको असन्तोष — भागवतोत्पत्तिको पृष्ठभूमि",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_४",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ४",
+        "pageid": 7993,
+        "revid": 110175,
+        "revision_timestamp": "2017-06-04T22:14:42Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-33",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "33 verses. Confirmed: the sages' request, Vyāsa born of Parāśara and Satyavatī, his observation of declining faculties, the fourfold division of the Veda, the four disciples (Paila, Vaiśampāyana, Jaimini, Sumantu), Romaharṣaṇa receiving itihāsa-purāṇa, the Bhārata composed for the less able, Vyāsa's dissatisfaction, and Nārada's arrival. This chapter has no Sanskrit verse block in the app.",
       "candidate_verse_range": "1-33",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 165,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 33,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.05",
       "canto": 1,
       "chapter": 5,
       "title": "नारदजीको खुला समीक्षा — भगवत्गुण-वर्णनको अभाव",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_५",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ५",
+        "pageid": 7994,
+        "revid": 110176,
+        "revision_timestamp": "2017-06-04T22:15:14Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-40",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "40 verses; speakers Sūta, Nārada, Vyāsa and Śrīnārada. Confirmed: Nārada's diagnosis (vv. 8-9), the 'crow's tīrtha' censure of literature without Kṛṣṇa's glory (v. 10), the barrenness of dharma, knowledge and renunciation without devotion (vv. 12-16), and Nārada's own boyhood account (vv. 23-31). The quoted verse 1.5.17 is verbatim and its Nepali rendering is faithful.",
       "candidate_verse_range": "1-40",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 156,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 40,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.06",
       "canto": 1,
       "chapter": 6,
       "title": "नारदजीको पूर्वजन्मको कथा",
-      "summary_status": "draft_unverified",
-      "key_points_status": "draft_unverified",
-      "primary_source_ref": null,
-      "verse_range": null,
-      "reviewer": null,
-      "reviewed_at": null,
-      "notes": "Selected candidate Sanskrit passages consulted as narrative orientation during draft expansion; not a full or verse-by-verse source review. Translation accuracy, edition/variants, interpretation, and completeness still require independent review.",
+      "summary_status": "source_checked",
+      "key_points_status": "source_checked",
+      "primary_source_ref": {
+        "edition": "श्रीमद्भागवतपुराणम्, Sanskrit Wikisource digital edition (CC BY-SA 4.0; underlying text public domain)",
+        "url": "https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_६",
+        "page": "श्रीमद्भागवतपुराणम्/स्कन्धः १/अध्यायः ६",
+        "pageid": 7995,
+        "revid": 110177,
+        "revision_timestamp": "2017-06-04T22:15:41Z",
+        "retrieved": "2026-11-19",
+        "reference_role": "accepted_reference"
+      },
+      "verse_range": "1-39",
+      "reviewer": "Arena agent (AI-assisted)",
+      "reviewed_at": "2026-11-19",
+      "notes": "39 verses; speakers Sūta, Vyāsa and Nārada. Confirmed: the maidservant's five-year-old son, the rainy-season service of the sages, the remnants, hearing Kṛṣṇa-kathā, the mother's snakebite, the northward journey, the solitary meditation under the pippala tree, the single vision and its withdrawal, the disembodied explanation, death and entry into Brahmā's breathing at the kalpa's end, and the vīṇā. This chapter has no Sanskrit verse block in the app.",
       "candidate_verse_range": "1-39",
-      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; verify against selected edition",
+      "candidate_range_source": "SanskritDocuments ITX chapter-metadata mirror; superseded for verification by the pinned Wikisource reference",
       "word_count": 196,
       "expansion_triage": "length_check_only",
-      "candidate_source_check": "selected_candidate_verses_consulted_for_narrative_orientation_only"
+      "verse_count_in_reference": 39,
+      "review_stage": "source_checked",
+      "checks": {
+        "chapter_mapping": "pass",
+        "verse_range": "pass",
+        "sequence": "pass",
+        "completeness": "pass",
+        "speakers_and_roles": "pass",
+        "nepali_language": "pass",
+        "terminology_consistency": "pass",
+        "no_source_text_copied": "pass"
+      }
     },
     {
       "id": "01.07",
@@ -5918,5 +6087,24 @@
     "length_guidance": "Usually 150–300 whitespace-delimited Nepali tokens; use more for dense chapters and only shorter with explicit source-based justification.",
     "automated_triage_threshold": 150,
     "warning": "Word count is a triage aid, not evidence of completeness; every chapter still requires source review."
+  },
+  "review_progress": {
+    "batch_1": {
+      "cantos": [
+        1
+      ],
+      "chapters": "1.1-1.6",
+      "reviewed_at": "2026-11-19",
+      "reviewer": "Arena agent (AI-assisted)",
+      "source_checked": 6,
+      "fixed_in_review": [
+        "01.02 summary completed (verses 24-27 added)",
+        "01.03 Nepali verb form corrected"
+      ],
+      "editorial_issues_found": [
+        "The app shows a Sanskrit verse block for only 39 of 335 chapters (296 chapters have none), so verse blocks are a per-chapter feature, not a verification backbone.",
+        "Only 17 of the existing verse blocks could be matched against the earlier provisional dataset; the reviewed blocks in 1.1-1.3 and 1.5 were checked directly against the accepted reference instead."
+      ]
+    }
   }
 }

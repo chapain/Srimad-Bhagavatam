@@ -121,7 +121,7 @@
 
     let html = '<section class="hero">';
     html += '<h1>श्रीमद्भागवत महापुराण</h1>';
-    html += '<p>वेदव्यासद्वारा विरचित, शुकदेव गोस्वामीद्वारा राजा परीक्षित्लाई सुनाइएको पुराण-रत्न। बाह्रै स्कन्धका नेपाली परिचय र ३३५ अध्यायका सारांश तथा मुख्य-विन्दु प्रारम्भिक मस्यौदा हुन्; स्रोतसँग अध्याय-दर-अध्याय समीक्षा बाँकी छ।</p>';
+    html += '<p>वेदव्यासद्वारा विरचित, शुकदेव गोस्वामीद्वारा राजा परीक्षित्लाई सुनाइएको पुराण-रत्न। बाह्रै स्कन्धका नेपाली परिचय र ३३५ अध्यायका सारांश तथा मुख्य-विन्दु लेखिएका छन्। सबै सारांशको अवस्था एउटै छैन — हाल ' + ne(Object.keys(REVIEW_STATUS).length) + ' अध्याय संस्कृत विकिस्रोतको स्थिर संस्करणसँग अध्याय-स्तरमा जाँचिएका छन्, बाँकी अझै प्रारम्भिक मस्यौदा हुन् र प्रत्येक अध्यायमा आफ्नै स्थिति देखाइन्छ।</p>';
     html += '<div class="hero-stats">' +
       '<div class="hero-stat"><b>' + ne(12) + '</b><span>स्कन्ध (भाग)</span></div>' +
       '<div class="hero-stat"><b>' + ne(335) + '</b><span>अध्याय</span></div>' +
@@ -197,6 +197,35 @@
     main.innerHTML = html;
   }
 
+  // ---- समीक्षा-स्थिति ----
+  // docs/content-review-manifest.json बाट उत्पन्न अध्याय-आधारित स्थिति। सारांश सामग्री
+  // यहाँ दोहोरिँदैन; स्थिति मात्र राखिन्छ। पुनःउत्पादन: node tools/gen-review-status.js
+  const REVIEW_STATUS = {
+    "01.01": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":110172,"v":"संस्करण 110172","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_१"},
+    "01.02": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":110173,"v":"संस्करण 110173","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_२"},
+    "01.03": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":369178,"v":"संस्करण 369178","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_३"},
+    "01.04": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":110175,"v":"संस्करण 110175","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_४"},
+    "01.05": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":110176,"v":"संस्करण 110176","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_५"},
+    "01.06": {"s":"source_checked","l":"अध्याय-स्तरीय स्रोत-जाँच","r":110177,"v":"संस्करण 110177","u":"https://sa.wikisource.org/wiki/श्रीमद्भागवतपुराणम्/स्कन्धः_१/अध्यायः_६"}
+  };
+
+  function reviewStatusKey(cantoId, chNo) {
+    return String(cantoId).padStart(2, '0') + '.' + String(chNo).padStart(2, '0');
+  }
+
+  function reviewNoteHtml(cantoId, chNo) {
+    const rec = REVIEW_STATUS[reviewStatusKey(cantoId, chNo)];
+    if (rec && rec.s === 'source_checked') {
+      return '<p class="reader-note checked">यो सारांश स्वीकृत स्रोत (<a href="' + esc(rec.u) + '" rel="noopener">' +
+        'संस्कृत विकिस्रोत</a>, ' + esc(rec.v) + ') सँग अध्याय-स्तरमा जाँचिएको छ; ' +
+        'श्लोक-दर-श्लोक अनुवाद-जाँच वा स्वतन्त्र सम्पादकीय स्वीकृति भने बाँकी छ।</p>';
+    }
+    if (rec && rec.s === 'editorially_approved') {
+      return '<p class="reader-note checked">यो सारांश स्रोत-जाँच र सम्पादकीय स्वीकृति दुवै पार गरेको छ।</p>';
+    }
+    return '<p class="reader-note">यो नेपाली सारांश प्रारम्भिक मस्यौदा हो; मूलपाठसँग अध्याय-दर-अध्याय समीक्षा बाँकी छ।</p>';
+  }
+
   function viewChapter(cantoId, chNo) {
     const c = getCanto(cantoId);
     if (!c || !CONTENT[c.id]) { viewCanto(cantoId); return; }
@@ -223,7 +252,7 @@
 
     html += '<h2>विस्तृत सारांश</h2>';
     if (ch.summary && ch.summary.trim()) {
-      html += '<p class="reader-note">यो नेपाली सारांश प्रारम्भिक मस्यौदा हो; मूलपाठसँग अध्याय-दर-अध्याय समीक्षा बाँकी छ।</p>';
+      html += reviewNoteHtml(c.id, ch.n);
       ch.summary.split(/\n\n+/).forEach((p) => {
         if (p.trim()) html += '<p>' + esc(p.trim()) + '</p>';
       });
